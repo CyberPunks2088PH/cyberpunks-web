@@ -16,6 +16,10 @@ body {
   min-height: 100%;
 }
 
+body {
+  background-color: #0b1420;
+}
+
 /* Utility Classes */
 /* Copyright: Tailwind CSS */
 .h-0 {
@@ -2427,4 +2431,17 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.btn-custom-1 {
+  color: #09fff0;
+  border: 2px solid #09fff0;
+  background-color: transparent;
+}
+
+.btn-custom-1:hover,
+.btn-custom-1:focus {
+  color: #09fff0;
+  border-color: #25ebdd;
+  background-color: transparent;
 }
