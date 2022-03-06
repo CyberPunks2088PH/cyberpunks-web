@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "VERMINVIBES1989";
+  src: url("fonts/VERMINVIBES1989.woff2") format("woff2"),
+    url("fonts/VERMINVIBES1989.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THIN_PIXEL7";
+  src: url("fonts/THIN_PIXEL7.woff2") format("woff2"),
+    url("fonts/THIN_PIXEL7.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.vermin {
+  font-family: "VERMINVIBES1989";
+}
+
+.thin-pixel {
+  font-family: "THIN_PIXEL7";
+}
