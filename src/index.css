@@ -2433,15 +2433,22 @@ body {
   cursor: pointer;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .btn-custom-1 {
-  color: #09fff0;
-  border: 2px solid #09fff0;
+  color: #09fef1;
+  border: 2px solid #09fef1;
   background-color: transparent;
 }
 
 .btn-custom-1:hover,
 .btn-custom-1:focus {
-  color: #09fff0;
-  border-color: #25ebdd;
-  background-color: transparent;
+  color: #09fef1;
+  background-color: #31918a;
 }

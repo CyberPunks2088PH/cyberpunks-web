@@ -1,0 +1,28 @@
+#header {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #0ffef1;
+}
+
+.punks-nav-logo-wrap {
+  width: 55%;
+}
+
+.punks-nav-other {
+  width: 45%;
+}
+
+.punks-nav-logo {
+  width: 60%;
+}
+
+.punks-socmed-item {
+  width: 6%;
+}
+
+.punks-socmed-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.punks-nav-btn {
+  margin-left: 20px;
+}
