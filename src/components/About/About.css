@@ -1,0 +1,10 @@
+.about-title {
+  line-height: 1em;
+}
+
+.about-sub {
+  line-height: 0.8em;
+  width: 60%;
+  margin: 0 auto;
+  text-align: justify;
+}
