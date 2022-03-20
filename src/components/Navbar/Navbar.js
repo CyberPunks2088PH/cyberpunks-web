@@ -76,8 +76,8 @@ export default function Navbar(props) {
 
     return (
         <div id="header">
-            <div className="container">
-                <div id="punks-nav" className="d-none d-lg-flex justify-content-between align-items-center">
+            <div id="punks-nav" className="container">
+                <div className="d-none d-lg-flex justify-content-between align-items-center">
                     <div className="punks-nav-logo-wrap">
                         <div className="punks-nav-logo">
                             <Link exact="true" to="/">

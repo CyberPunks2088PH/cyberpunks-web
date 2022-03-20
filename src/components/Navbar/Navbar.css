@@ -1,6 +1,17 @@
 #header {
+  position: relative;
+  height: 85px;
+  z-index: 1000000;
   padding: 0.8rem 0;
   border-bottom: 1px solid #0ffef1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0b1420;
+}
+
+#punks-nav {
+  margin-top: -3px;
 }
 
 .punks-nav-logo-wrap {
