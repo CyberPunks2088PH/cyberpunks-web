@@ -1,0 +1,18 @@
+#banner {
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+}
+
+.banner-content {
+  background-color: #071524;
+  width: 90%;
+  padding: 1.5em 3em;
+  margin: 0 auto;
+}
+
+.banner-content-sub {
+  line-height: 1em;
+}
