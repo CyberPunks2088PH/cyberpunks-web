@@ -1,0 +1,31 @@
+#series {
+  padding: 1.3em 0 0;
+}
+
+.series-title {
+  line-height: 1em;
+}
+
+.series-sub {
+  line-height: 0.8em;
+}
+
+.series-btn:not(:first-child) {
+  margin-left: 20px;
+}
+
+.series-btn {
+  width: 200px;
+}
+
+.gallery-item {
+  width: 75%;
+  margin: 0 auto;
+  border: 2px solid #09fef1;
+  border-radius: 50px 0 50px 0;
+  margin-bottom: 2em;
+}
+
+.gallery-item img {
+  border-radius: 50px 0 50px 0;
+}

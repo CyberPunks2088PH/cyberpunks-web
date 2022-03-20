@@ -1,0 +1,12 @@
+.punks-border {
+  border-bottom: 1px solid #09fef1;
+  margin: 5em 0 2em;
+}
+
+.punks-trapezoid-bottom {
+  border-bottom: 35px solid #09fef1;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  width: 15%;
+  margin: 0 auto;
+}
