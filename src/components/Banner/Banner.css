@@ -7,12 +7,12 @@
 }
 
 .banner-content {
-  background-color: #071524;
+  background-color: rgba(7, 21, 36, 0.8);
   width: 90%;
   padding: 1.5em 3em;
   margin: 0 auto;
 }
 
 .banner-content-sub {
-  line-height: 1em;
+  line-height: 0.9em;
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 // import { bubble as Menu } from "react-burger-menu"
 import './Navbar.css'
 
-import logo from '../../images/logo-full.png'
+import logo from '../../images/Website-Logo.gif'
 import iconTwitter from '../../images/Twitter-Pixel.png'
 import iconInstagram from '../../images/IG-Pixel.png'
 import iconDiscord from '../../images/Discord-Pixel.png'
