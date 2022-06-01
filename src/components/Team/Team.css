@@ -1,0 +1,33 @@
+#team {
+  background-color: #0D1520;
+}
+
+.team-img {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.team-sub-no-link {
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+  line-height: 0.8em;
+}
+
+.team-sub {
+  line-height: 1em;
+}
+
+.team-sub a {
+  text-decoration: none;
+}
+
+.team-sub a:hover,
+.team-sub a:focus {
+  color: #fe0054;
+}
+
+.team-desc {
+  line-height: 0.8em;
+  width: 70%;
+  margin: 0 auto;
+}

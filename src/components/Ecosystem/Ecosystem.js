@@ -16,7 +16,7 @@ export default function Ecosystem() {
             </div>
 
             {/* border */}
-            <div className="punks-border mt-4">
+            <div className="punks-border mt-4 mb-0">
                 <div className="punks-trapezoid-bottom"></div>
             </div>
         </section>

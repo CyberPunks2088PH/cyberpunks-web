@@ -5,6 +5,7 @@ import Banner from './components/Banner/Banner'
 import OGSeries from './components/OGSeries/OGSeries'
 import About from './components/About/About'
 import Ecosystem from './components/Ecosystem/Ecosystem'
+import Team from './components/Team/Team'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <OGSeries />
             <About />
             <Ecosystem />
+            <Team />
         </Router>
     )
 }
