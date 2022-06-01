@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Banner from './components/Banner/Banner'
 import OGSeries from './components/OGSeries/OGSeries'
 import About from './components/About/About'
+import Ecosystem from './components/Ecosystem/Ecosystem'
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Banner />
             <OGSeries />
             <About />
+            <Ecosystem />
         </Router>
     )
 }

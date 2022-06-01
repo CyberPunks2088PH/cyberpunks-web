@@ -1,0 +1,26 @@
+#ecosystem {
+  background-color: #06101e;
+}
+
+.ecosystem-border {
+  width: 250px;
+  height: 5px;
+  margin: 0 auto 2em;
+  background-color: #fe0054;
+}
+
+.ecosystem-title {
+  line-height: 0.7em;
+}
+
+.ecosystem-sub {
+  line-height: 0.8em;
+  width: 60%;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.ecosystem-img {
+  width: 60%;
+  margin: 0 auto;
+}

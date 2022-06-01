@@ -11,7 +11,7 @@ export default function About() {
             </div>
 
             {/* border */}
-            <div className="punks-border">
+            <div className="punks-border mb-0">
                 <div className="punks-trapezoid-bottom"></div>
             </div>
         </section>
