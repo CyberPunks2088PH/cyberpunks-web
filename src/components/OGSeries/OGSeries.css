@@ -2,6 +2,15 @@
   padding: 1.3em 0 0;
 }
 
+.series-banner {
+  margin-left: -40px;
+}
+
+.series-k9 {
+  width: 280px;
+  text-align: right;
+}
+
 .series-title {
   line-height: 1em;
 }

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 // import { bubble as Menu } from "react-burger-menu"
+import { HashLink } from "react-router-hash-link"
 import './Navbar.css'
 
 import logo from '../../images/Website-Logo.gif'
@@ -10,22 +11,22 @@ import iconDiscord from '../../images/Discord-Pixel.png'
 import iconOpensea from '../../images/opensea-pixel.png'
 
 export default function Navbar(props) {
-    // const [menuOpenState, setMenuOpenState] = useState(false)
+    const [menuOpenState, setMenuOpenState] = useState(false)
 
-    // const scrollWithOffset = (el) => {
-    //     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    //     // const yOffset = 0; 
-    //     // window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
-    //     window.scrollTo({ top: yCoordinate, behavior: 'smooth' }); 
-    // }
+    const scrollWithOffset = (el) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+        const yOffset = -70; 
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+        // window.scrollTo({ top: yCoordinate, behavior: 'smooth' }); 
+    }
 
-    // const handleStateChange = (state) => {
-    //     setMenuOpenState(state.isOpen)
-    // }
+    const handleStateChange = (state) => {
+        setMenuOpenState(state.isOpen)
+    }
 
-    // const closeMenu = () => {
-    //     setMenuOpenState(false)
-    // }
+    const closeMenu = () => {
+        setMenuOpenState(false)
+    }
 
     // const styles = {
     //     bmBurgerButton: {
@@ -78,40 +79,35 @@ export default function Navbar(props) {
         <div id="header">
             <div id="punks-nav" className="container">
                 <div className="d-none d-lg-flex justify-content-between align-items-center">
-                    <div className="punks-nav-logo-wrap">
-                        <div className="punks-nav-logo">
-                            <Link exact="true" to="/">
-                                <img src={logo} className="punks-nav-logo" alt="CyberPunks Logo" />
-                            </Link>
-                        </div>
+                    <div className="punks-nav-logo">
+                        <Link exact="true" to="/">
+                            <img src={logo} className="w-100" alt="CyberPunks Logo" />
+                        </Link>
                     </div>
-                    <div className="punks-nav-other">
-                        <div className="punks-socmed d-flex justify-content-end align-items-center">
-                            <div className="punks-socmed-item">
-                                <a href="https://twitter.com/NFTCyberPunks">
-                                    <img src={iconTwitter} className="w-100" alt="CyberPunks 2088 Twitter" />
-                                </a>
-                            </div>
-                            <div className="punks-socmed-item">
-                                <a href="https://instagram.com/nftcyberpunks/">
-                                    <img src={iconInstagram} className="w-100" alt="CyberPunks 2088 Instagram" />
-                                </a>
-                            </div>
-                            <div className="punks-socmed-item">
-                                <a href="https://discord.gg/PC3bthGRWg">
-                                    <img src={iconDiscord} className="w-100" alt="CyberPunks 2088 Discord" />
-                                </a>
-                            </div>
-                            <div className="punks-socmed-item">
-                                <a href="https://opensea.io/collection/cyberpunks2088">
-                                    <img src={iconOpensea} className="w-100" alt="CyberPunks 2088 OpenSea" />
-                                </a>
-                            </div>
-                            <button className="btn punks-nav-btn btn-custom-1 py-1 px-4 font-size-180">
+                    <ul className="d-flex justify-content-center align-items-center flex-wrap mb-0 p-0">
+                        <li>
+                            <HashLink className="text-color-2 font-size-220" smooth to="#lore" scroll={el => scrollWithOffset(el)}>LORE</HashLink>
+                        </li>
+                        <li>
+                            <HashLink className="text-color-2 font-size-220" smooth to="#timeline" scroll={el => scrollWithOffset(el)}>TIMELINE</HashLink>
+                        </li>
+                        <li>
+                            <HashLink className="text-color-2 font-size-220" smooth to="#ecosystem" scroll={el => scrollWithOffset(el)}>ECOSYSTEM</HashLink>
+                        </li>
+                        <li>
+                            <HashLink className="text-color-2 font-size-220" smooth to="#team" scroll={el => scrollWithOffset(el)}>TEAM</HashLink>
+                        </li>
+                        {/* <li>
+                            <a href="#" target="_blank" className="btn mq-nav-discord text-white gotham-black font-size-100">
+                                BETA TEST
+                            </a>
+                        </li> */}
+                        <li>
+                            <button type="button" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
                                 MINT NOW
                             </button>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
                 {/* <div className="d-lg-none align-self-end">
                     <Menu right styles={styles}

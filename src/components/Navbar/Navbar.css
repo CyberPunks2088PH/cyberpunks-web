@@ -1,39 +1,37 @@
 #header {
   position: relative;
-  height: 85px;
+  height: 70px;
   z-index: 1000000;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid #0ffef1;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--neongreen);
   position: fixed;
   top: 0;
   width: 100%;
   background-color: #0b1420;
 }
 
-#punks-nav {
-  margin-top: -3px;
-}
-
-.punks-nav-logo-wrap {
-  width: 55%;
-}
-
-.punks-nav-other {
-  width: 45%;
-}
-
 .punks-nav-logo {
-  width: 60%;
+  width: 180px;
 }
 
-.punks-socmed-item {
-  width: 6%;
+#punks-nav li {
+  list-style: none;
 }
 
-.punks-socmed-item:not(:last-child) {
-  margin-right: 30px;
+#punks-nav li:not(:first-child) {
+  margin-left: 20px;
+}
+
+#punks-nav li a {
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+#punks-nav li a:hover,
+#punks-nav li a:focus {
+  color: var(--red);
 }
 
 .punks-nav-btn {
-  margin-left: 20px;
+  line-height: 1em;
 }

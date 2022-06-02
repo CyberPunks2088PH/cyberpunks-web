@@ -3,7 +3,7 @@
 }
 
 .footer-icons {
-    border-bottom: 1px solid #09fef1;
+    border-bottom: 1px solid var(--neongreen);
 }
 
 .footer-sub {

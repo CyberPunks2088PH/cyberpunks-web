@@ -23,7 +23,7 @@
 
 .team-sub a:hover,
 .team-sub a:focus {
-  color: #fe0054;
+  color: var(--red);
 }
 
 .team-desc {

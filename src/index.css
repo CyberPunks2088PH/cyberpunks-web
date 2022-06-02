@@ -1,5 +1,11 @@
 @import url(fonts.css);
 
+:root {
+  --red: #fe0054;
+  --green: #0a9990;
+  --neongreen: #09fef1;
+}
+
 * {
   box-sizing: border-box;
   font-family: "THIN_PIXEL7";
@@ -2499,25 +2505,37 @@ body {
 }
 
 .text-color-1 {
-  color: #fe0054;
+  color: var(--red);
 }
 
 .text-color-2 {
-  color: #0a9990;
+  color: var(--green);
 }
 
 .text-color-3 {
-  color: #09fef1;
+  color: var(--neongreen);
 }
 
 .btn-custom-1 {
-  color: #09fef1;
-  border: 2px solid #09fef1;
+  color: var(--neongreen);
+  border: 2px solid var(--neongreen);
   background-color: transparent;
 }
 
 .btn-custom-1:hover,
 .btn-custom-1:focus {
-  color: #09fef1;
+  color: var(--neongreen);
   background-color: #31918a;
+}
+
+.btn-custom-2 {
+  color: var(--green);
+  border: 2px solid var(--green);
+  background-color: transparent;
+}
+
+.btn-custom-2:hover,
+.btn-custom-2:focus {
+  color: var(--neongreen);
+  background-color: #097a73;
 }
