@@ -6,6 +6,7 @@ import OGSeries from './components/OGSeries/OGSeries'
 import About from './components/About/About'
 import Ecosystem from './components/Ecosystem/Ecosystem'
 import Team from './components/Team/Team'
+import Footer from './components/Footer/Footer'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <About />
             <Ecosystem />
             <Team />
+            <Footer />
         </Router>
     )
 }

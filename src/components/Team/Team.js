@@ -17,7 +17,7 @@ export default function Ecosystem() {
                             <img src={rounikun} alt="Rounikun PFP" className="w-100" />
                         </div>
                         <p className="team-sub text-center mt-4 mb-1">
-                            <a href="https://twitter.com/rounikun" className="text-color-1 font-size-300">@ROUNIKUN</a>
+                            <a href="https://twitter.com/rounikun" target="_blank" rel="noreferrer" className="text-color-1 font-size-300">@ROUNIKUN</a>
                         </p>
                         <p className="team-desc text-center text-color-2 font-size-250">Head of Development and Artist</p>
                     </div>
@@ -26,7 +26,7 @@ export default function Ecosystem() {
                             <img src={c6feels} alt="6Feels PFP" className="w-100" />
                         </div>
                         <p className="team-sub text-center mt-4 mb-1">
-                            <a href="https://twitter.com/C6feels" className="text-color-1 font-size-300">@SEE6FEELS</a>
+                            <a href="https://twitter.com/C6feels" target="_blank" rel="noreferrer" className="text-color-1 font-size-300">@SEE6FEELS</a>
                         </p>
                         <p className="team-desc text-center text-color-2 font-size-250">Community Manager</p>
                     </div>
