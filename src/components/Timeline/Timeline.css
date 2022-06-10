@@ -10,5 +10,54 @@
 }
 
 .timeline-wrap {
-  
+  display: grid;
+  grid-template-columns: 1fr 3px 1fr;
+}
+
+.timeline-content.margin-left-only{
+  margin: 0 0 50px 50px;
+}
+
+.timeline-content.margin-right-only{
+  margin: 0 50px 50px 0;
+}
+
+.timeline-content.no-bottom {
+  margin-bottom: 0 !important;
+}
+
+.timeline-text {
+  line-height: 0.5em;
+}
+
+.timeline-text.normal-line-height {
+  line-height: 0.8em;
+}
+
+.timeline-border {
+  position: relative;
+  background: var(--neongreen);
+}
+
+.timeline-hex {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: var(--neongreen);
+  transform: translateX(-50%);
+}
+
+.timeline-list-item {
+  padding-left: 4rem;
+}
+
+/* Chevrons */
+.chevron-450 {
+  font-size: 0.45em !important;
+}
+
+.chevron-500 {
+  font-size: 0.5em !important;
 }
