@@ -1,3 +1,5 @@
+@import url(media-queries.css);
+
 .punks-border {
   border-bottom: 4px solid #09fef1;
   margin: 5em 0 2em;

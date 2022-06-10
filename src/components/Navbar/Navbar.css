@@ -1,17 +1,22 @@
 #header {
-  position: relative;
   height: 70px;
   z-index: 1000000;
   padding: 8px 0;
   border-bottom: 1px solid var(--neongreen);
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: #0b1420;
 }
 
 .punks-nav-logo {
   width: 180px;
+}
+
+.punks-nav-logo-mobile {
+  width: 90%;
+  margin: 0 auto 30px;
 }
 
 #punks-nav li {

@@ -6,6 +6,11 @@
   width: 100%;
 }
 
+.banner-content-title {
+  line-height: 0.8em;
+  font-weight: bold;
+}
+
 .banner-content {
   background-color: rgba(7, 21, 36, 0.8);
   width: 90%;

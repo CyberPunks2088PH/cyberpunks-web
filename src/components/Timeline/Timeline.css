@@ -1,0 +1,14 @@
+#timeline {
+  background-color: #09131f;
+}
+
+.squares-red {
+  background-color: var(--red);
+  width: 12px;
+  height: 12px;
+  margin: 0 3px;
+}
+
+.timeline-wrap {
+  
+}

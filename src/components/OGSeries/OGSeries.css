@@ -2,13 +2,15 @@
   padding: 1.3em 0 0;
 }
 
-.series-banner {
-  margin-left: -40px;
+.series-k9-wrap {
+  position: relative;
 }
 
 .series-k9 {
   width: 280px;
-  text-align: right;
+  position: absolute;
+  bottom: -48px;
+  left: 110px;
 }
 
 .series-title {

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Banner from './components/Banner/Banner'
 import OGSeries from './components/OGSeries/OGSeries'
 import About from './components/About/About'
+import Timeline from './components/Timeline/Timeline'
 import Ecosystem from './components/Ecosystem/Ecosystem'
 import Team from './components/Team/Team'
 import Footer from './components/Footer/Footer'
@@ -15,6 +16,7 @@ function App() {
             <Banner />
             <OGSeries />
             <About />
+            <Timeline />
             <Ecosystem />
             <Team />
             <Footer />

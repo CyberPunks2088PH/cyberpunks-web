@@ -1,0 +1,100 @@
+@media (max-width: 1400px) {
+    .series-k9 {
+        left: 40px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .series-k9 {
+        left: -50px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #header {
+        border-bottom: none !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+    }
+
+    .lore-sub,
+    .ecosystem-sub,
+    .ecosystem-img {
+        width: 80% !important;
+    }
+    
+    .team-img {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-content {
+        width: 100% !important;
+    }
+
+    .lore-sub,
+    .ecosystem-sub,
+    .ecosystem-img {
+        width: 100% !important;
+    }
+
+    .series-btn {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+    
+    .series-btn:first-child {
+        margin-bottom: 10px !important;
+    }
+
+    .gallery-item {
+        width: calc(100%/3) !important;
+    }
+
+    .footer-img-icons {
+        width: 90% !important;
+        margin: 10px auto !important;
+    }
+}
+
+@media (max-width: 568px) {
+    .lore-sub,
+    .ecosystem-sub,
+    .ecosystem-img {
+        width: 90% !important;
+    }
+
+    .team-img {
+        width: 40% !important;
+    }
+
+    .punks-trapezoid-bottom {
+        width: 35% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-img {
+        width: 60% !important;
+    }
+
+    .team-wrap .col-12:not(:last-child) {
+        margin-bottom: 1em;;
+    }
+
+    .punks-trapezoid-bottom {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner-content-title {
+        width: 70% !important;
+        margin: 0 auto 5% !important;
+    }
+
+    .banner-content {
+        padding: 1.5em 2em !important;
+    }
+}

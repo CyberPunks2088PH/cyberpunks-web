@@ -7,7 +7,7 @@ import opensea from '../../images/opensea-link.png'
 export default function Footer() {
     return (
         <section id="footer">
-            <div className="footer-icons">
+            <div className="footer-icons py-2 py-md-5">
                 <div className="container">
                     <div className="row justify-content-center align-items-center">
                         <div className="col-12 col-md-4">
@@ -35,7 +35,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="container">
-                <p className="footer-sub text-center text-color-2 font-size-250 py-5 mb-0">Powered by CyberPunks2088</p>
+                <p className="footer-sub text-center text-color-2 font-size-250 py-3 py-md-4 py-lg-5 mb-0">Powered by CyberPunks2088</p>
             </div>
         </section>
     )
