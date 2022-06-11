@@ -56,8 +56,10 @@
 /* Chevrons */
 .chevron-450 {
   font-size: 0.45em !important;
+  vertical-align: -0.15em !important
 }
 
 .chevron-500 {
   font-size: 0.5em !important;
+  vertical-align: -0.15em !important
 }

@@ -52,6 +52,10 @@
         width: calc(100%/3) !important;
     }
 
+    .timeline-wrap-mobile {
+        grid-template-columns: 3px 1fr;
+    }
+
     .footer-img-icons {
         width: 90% !important;
         margin: 10px auto !important;
@@ -72,6 +76,10 @@
     .punks-trapezoid-bottom {
         width: 35% !important;
     }
+
+    .timeline-wrap-mobile {
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -86,6 +94,10 @@
     .punks-trapezoid-bottom {
         width: 50% !important;
     }
+
+    .timeline-content.margin-left-only{
+        margin-left: 30px !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -96,5 +108,9 @@
 
     .banner-content {
         padding: 1.5em 2em !important;
+    }
+
+    .timeline-list-item {
+        padding-left: 2rem !important;
     }
 }
