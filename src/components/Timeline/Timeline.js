@@ -2,7 +2,8 @@ import './Timeline.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-import series1 from '../../images/K9-Timeline-Banner.jpg'
+import og from '../../images/OG-Timeline-Banner.jpg'
+import k9 from '../../images/K9-Timeline-Banner.jpg'
 
 export default function Timeline() {
     return (
@@ -45,7 +46,7 @@ export default function Timeline() {
                     <div className="timeline-content margin-left-only">
                         <p className="timeline-text text-color-1 font-semibold font-size-290 font-size-sm-400 mb-3">Series 1</p>
                         <div className="timeline-img mb-3">
-                            <img src={series1} alt="K9-Timeline-Banner" className="w-100" />
+                            <img src={og} alt="OG Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">The OG Series is the arrival of 208 OG CyberPunks in the Ethereum Cryptoverse. Minted manually at OpenSea and been SOLD OUT. All were hand-drawn, rendered into GIF and each has unique traits and aesthetic. One of the most unique Punk derivative in the Ethereum Blockchain.</p>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">OG CyberPunks Holders have priority access and exclusive benefits to all the future related collection.</p>
@@ -58,7 +59,7 @@ export default function Timeline() {
                     <div className="timeline-content margin-right-only">
                         <p className="timeline-text text-color-1 text-right font-semibold font-size-290 font-size-sm-400 mb-3">K9 Series</p>
                         <div className="timeline-img mb-3">
-                            <img src={series1} alt="K9-Timeline-Banner" className="w-100" />
+                            <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
                         <a href="#" target="_blank" rel="noreferrer" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
