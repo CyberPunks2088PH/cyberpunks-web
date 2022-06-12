@@ -1,0 +1,13 @@
+/* Banner */
+#k9-banner {
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+}
+
+/* Mint */
+#k9-mint {
+    background-color: #06101e;
+}

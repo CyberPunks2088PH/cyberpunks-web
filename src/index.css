@@ -4,6 +4,8 @@
   --red: #fe0054;
   --green: #0a9990;
   --neongreen: #09fef1;
+  --violet: #fa00ff;
+  --purple: #8500ff;
 }
 
 * {
@@ -2518,6 +2520,10 @@ body {
 
 .text-color-3 {
   color: var(--neongreen);
+}
+
+.text-color-4 {
+  color: var(--violet);
 }
 
 .btn-custom-1 {
