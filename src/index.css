@@ -2549,3 +2549,27 @@ body {
   color: var(--neongreen);
   background-color: #097a73;
 }
+
+.btn-custom-3 {
+  color: #000000;
+  border: none !important;
+  background: linear-gradient(0deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 57%);
+}
+
+.btn-custom-3:hover,
+.btn-custom-3:focus {
+  color: #111111;
+  background: linear-gradient(0deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 57%);
+}
+
+.btn-custom-4 {
+  color: #000000;
+  border: none !important;
+  background: linear-gradient(90deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 100%);
+}
+
+.btn-custom-4:hover,
+.btn-custom-4:focus {
+  color: #111111;
+  background: linear-gradient(90deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 100%);
+}
