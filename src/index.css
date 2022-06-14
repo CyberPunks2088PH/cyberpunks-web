@@ -6,6 +6,11 @@
   --neongreen: #09fef1;
   --violet: #fa00ff;
   --purple: #8500ff;
+  --lightgreen: #01ca8e;
+  --purple1: #a300ff;
+  --brown: #f37505;
+  --blue: #0546e1;
+  --red1: #ff0048;
 }
 
 * {
@@ -2524,6 +2529,26 @@ body {
 
 .text-color-4 {
   color: var(--violet);
+}
+
+.text-color-5 {
+  color: var(--purple1);
+}
+
+.text-color-6 {
+  color: var(--red1);
+}
+
+.text-color-7 {
+  color: var(--blue);
+}
+
+.text-color-8 {
+  color: var(--brown);
+}
+
+.text-color-9 {
+  color: var(--lightgreen);
 }
 
 .btn-custom-1 {

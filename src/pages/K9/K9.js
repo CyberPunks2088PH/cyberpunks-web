@@ -4,6 +4,12 @@ import { useState } from 'react'
 
 import k9Banner from '../../images/K9/Window-K9-text.gif'
 import k9BannerMobile from '../../images/K9/Window-K9-text-mobile.gif'
+import blueMongrel from '../../images/K9/Blue-Mongrel.png'
+import brownMongrel from '../../images/K9/Brown-Mongrel.png'
+import purpleMongrel from '../../images/K9/Purple-Mongrel.png'
+import hound from '../../images/K9/Hound.png'
+import martian from '../../images/K9/Martian.png'
+import tech from '../../images/K9/Tech.png'
 
 export default function K9() {
     const [state, setState] = useState({
@@ -59,6 +65,78 @@ export default function K9() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="k9-rarity" className="py-5">
+                <div className="container">
+                    <h3 className="k9-rarity-title vermin text-color-2 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-0">RARITY</h3>
+                    <div className="k9-rarity-border"></div>
+
+                    <p className="k9-rarity-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+
+                    <div className="k9-rarity-traits d-flex align-items-center mb-5">
+                        <div className="k9-rarity-traits-col margin-right-5">
+                            <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
+                                <div className="k9-rarity-traits-details-wrap-right">
+                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">MARTIAN</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. La maecenas accumsan lacus vel facilisis.</p>
+                                </div>
+                                <div className="k9-rarity-traits-img-wrap img-right">
+                                    <img src={martian} alt="Martian" className="w-100" />
+                                </div>
+                            </div>
+                            <div className="k9-rarity-traits-item d-flex align-items-center">
+                                <div className="k9-rarity-traits-details-wrap-right">
+                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">TECH</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. La maecenas accumsan lacus vel facilisis.</p>
+                                </div>
+                                <div className="k9-rarity-traits-img-wrap img-right">
+                                    <img src={tech} alt="Tech" className="w-100" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="k9-rarity-traits-col margin-left-5">
+                            <div className="k9-rarity-traits-item d-flex align-items-center">
+                                <div className="k9-rarity-traits-img-wrap img-left">
+                                    <img src={hound} alt="Hound" className="w-100" />
+                                </div>
+                                <div className="k9-rarity-traits-details-wrap-left">
+                                    <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">HOUND</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. La maecenas accumsan lacus vel facilisis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="k9-rarity-traits-2 d-flex align-items-center mb-4">
+                        <div className="k9-rarity-traits-col margin-right-5">
+                            <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
+                                <div className="k9-rarity-traits-mongrel">
+                                    <img src={purpleMongrel} alt="Purple Mongrel" className="w-100" />
+                                </div>
+                                <div className="k9-rarity-traits-img-wrap pos-right img-right">
+                                    <img src={brownMongrel} alt="Brown Mongrel" className="w-100 mb-2" />
+                                    <img src={blueMongrel} alt="Blue Mongrel" className="w-100 mt-2" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="k9-rarity-traits-col margin-left-5">
+                            <div className="k9-rarity-traits-item d-flex align-items-center">
+                                <div className="k9-rarity-traits-details-wrap-left">
+                                    <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">MONGREL</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. La maecenas accumsan lacus vel facilisis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="k9-breed-stats" className="mb-4">
+                <div className="container">
+                    <h3 className="k9-breed-stats-title text-color-1 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-4">BREED STATS</h3>
+                    
                 </div>
             </section>
         </div>

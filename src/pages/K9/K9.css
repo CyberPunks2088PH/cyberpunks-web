@@ -65,3 +65,76 @@
     line-height: 0.4em;
     border-radius: 0;
 }
+
+/* Rarity */
+#k9-rarity {
+    background-color: #0c1521;
+}
+
+.k9-rarity-border {
+    width: 150px;
+    height: 5px;
+    margin: 0 auto 2em;
+    background-color: #fe0054;
+}
+
+.k9-rarity-title,
+.k9-rarity-sub {
+    line-height: 1em;
+}
+
+.k9-rarity-traits-col {
+    width: 48%;
+}
+
+.k9-rarity-traits-col.margin-right-5 {
+    margin-right: 1%;
+}
+
+.k9-rarity-traits-col.margin-left-5 {
+    margin-left: 1%;
+}
+
+.k9-rarity-traits-item {
+    position: relative;
+}
+
+.k9-rarity-traits-details-wrap-right {
+    width: 60%;
+    margin-right: 5%;
+}
+
+.k9-rarity-traits-details-wrap-left {
+    width: 60%;
+    margin-left: 5%;
+}
+
+.k9-rarity-traits-img-wrap {
+    width: 35%;
+}
+
+.k9-rarity-traits-img-wrap.img-right {
+    position: relative;
+    right: -20px;
+}
+
+.k9-rarity-traits-img-wrap.img-left {
+    position: relative;
+    left: -20px;
+}
+
+.k9-rarity-traits-title {
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.k9-rarity-traits-sub {
+    line-height: 1em;
+}
+
+.k9-rarity-traits-mongrel {
+    margin-left: 30%;
+    width: 35%;
+    position: relative;
+    right: -35px;
+}
