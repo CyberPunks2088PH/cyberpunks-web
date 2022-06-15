@@ -133,7 +133,7 @@ export default function K9() {
                 </div>
             </section>
 
-            <section id="k9-breed-stats" className="mb-5">
+            <section id="k9-breed-stats">
                 <div className="container">
                     <h3 className="k9-breed-stats-title text-color-1 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-4">BREED STATS</h3>
                     
@@ -186,6 +186,113 @@ export default function K9() {
             <div className="punks-border mt-4 mb-0">
                 <div className="punks-trapezoid-bottom"></div>
             </div>
+
+            <section id="k9-roadmap" className="pt-5 pb-4">
+                <div className="container">
+                    <h3 className="k9-roadmap-title vermin text-color-2 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-0">MINTING ROADMAP</h3>
+                    <div className="k9-roadmap-border"></div>
+
+                    <div className="k9-roadmap-wrap my-5">
+                        {/* First Row */}
+                        <div className="k9-roadmap-border-vert">
+                            <div className="k9-roadmap-hex"></div>
+                        </div>
+                        <div className="k9-roadmap-content margin-left-only">
+                            <p className="k9-roadmap-text text-color-1 font-size-310 font-size-sm-480 mb-3">25% Minted</p>
+                            <ul className="k9-roadmap-list-item">
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            </ul>
+                        </div>
+
+                        {/* Second Row */}
+                        <div className="k9-roadmap-border-vert">
+                            <div className="k9-roadmap-hex"></div>
+                        </div>
+                        <div className="k9-roadmap-content margin-left-only">
+                            <p className="k9-roadmap-text text-color-1 font-size-310 font-size-sm-480 mb-3">50% Minted</p>
+                            <ul className="k9-roadmap-list-item">
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            </ul>
+                        </div>
+
+                        {/* Third Row */}
+                        <div className="k9-roadmap-border-vert">
+                            <div className="k9-roadmap-hex"></div>
+                        </div>
+                        <div className="k9-roadmap-content margin-left-only">
+                            <p className="k9-roadmap-text text-color-1 font-size-310 font-size-sm-480 mb-3">75% Minted</p>
+                            <ul className="k9-roadmap-list-item">
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            </ul>
+                        </div>
+
+                        {/* Fourth Row */}
+                        <div className="k9-roadmap-border-vert no-border">
+                            <div className="k9-roadmap-hex"></div>
+                        </div>
+                        <div className="k9-roadmap-content margin-left-only no-bottom">
+                            <p className="k9-roadmap-text text-color-1 font-size-310 font-size-sm-480 mb-3">100% Minted</p>
+                            <ul className="k9-roadmap-list-item">
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                <li className="k9-roadmap-text-sub normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="k9-faqs" className="pt-5 pb-4">
+                <div className="container">
+                    <h3 className="k9-faqs-title vermin text-color-2 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-0">FAQS</h3>
+                    <div className="k9-faqs-border"></div>
+
+                    <div className="accordion accordion-flush" id="k9-faqs-accordion">
+                        <div className="accordion-item k9-faqs-item">
+                            <h2 className="accordion-header k9-faqs-header" id="flush-headingOne">
+                                <button className="accordion-button collapsed text-color-1 font-size-170 font-size-sm-220 k9-faqs-btn" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
+                                    What is the total supply?
+                                    <button className="btn k9-faqs-collapse-btn minus text-center font-bold btn-custom-3 font-size-100">-</button>
+                                    <button className="btn k9-faqs-collapse-btn plus text-center font-bold btn-custom-3 font-size-100">+</button>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </div>
+                        <div className="accordion-item k9-faqs-item">
+                            <h2 className="accordion-header k9-faqs-header" id="flush-headingTwo">
+                                <button className="accordion-button collapsed text-color-1 font-size-170 font-size-sm-220 k9-faqs-btn" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
+                                    How many K9s can I mint per transaction?
+                                    <button className="btn k9-faqs-collapse-btn minus text-center font-bold btn-custom-3 font-size-100">-</button>
+                                    <button className="btn k9-faqs-collapse-btn plus text-center font-bold btn-custom-3 font-size-100">+</button>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </div>
+                        <div className="accordion-item k9-faqs-item">
+                            <h2 className="accordion-header k9-faqs-header" id="flush-headingThree">
+                                <button className="accordion-button collapsed text-color-1 font-size-170 font-size-sm-220 k9-faqs-btn" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
+                                    When is the launch of CyberPunk K9?
+                                    <button className="btn k9-faqs-collapse-btn minus text-center font-bold btn-custom-3 font-size-100">-</button>
+                                    <button className="btn k9-faqs-collapse-btn plus text-center font-bold btn-custom-3 font-size-100">+</button>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </section>
         </div>
     )
 }

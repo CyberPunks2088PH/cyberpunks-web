@@ -142,6 +142,7 @@
 /* Breed Stats */
 #k9-breed-stats {
     background-color: #0c1521;
+    margin-bottom: 5em;
 }
 
 .k9-breed-stats-wrap {
@@ -209,4 +210,135 @@
     border-color: var(--lightgreen);
     background-color: #009367;
     width: 36%;
+}
+
+/* K9 Roadmap */
+#k9-roadmap {
+    background-color: #06101e;
+}
+
+.k9-roadmap-border {
+    width: 250px;
+    height: 8px;
+    margin: 1em auto 4em;
+    background-color: #fe0054;
+}
+
+.k9-roadmap-title {
+    line-height: 1em;
+}
+
+.k9-roadmap-wrap {
+    display: grid;
+    grid-template-columns: 7px 1fr;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.k9-roadmap-border-vert {
+    position: relative;
+    background: var(--neongreen);
+}
+
+.k9-roadmap-border-vert.no-border {
+    background: none;
+}
+
+.k9-roadmap-hex {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: var(--neongreen);
+    transform: translateX(-50%);
+}
+
+.k9-roadmap-content.margin-left-only{
+    margin: 0 0 40px 50px;
+}
+
+.k9-roadmap-content.no-bottom {
+    margin-bottom: 0 !important;
+}
+
+.k9-roadmap-text {
+    line-height: 0.5em;
+    margin-top: -10px;
+}
+
+.k9-roadmap-text-sub {
+    line-height: 0.8em;
+}
+
+.k9-roadmap-text-sub.normal-line-height {
+    line-height: 0.8em;
+}
+
+/* K9 FAQs */
+#k9-faqs {
+    background-color: #0c1521;
+}
+
+.k9-faqs-border {
+    width: 250px;
+    height: 8px;
+    margin: 0 auto 4em;
+    background-color: #fe0054;
+}
+
+.k9-faqs-title {
+    line-height: 1em;
+}
+
+#k9-faqs-accordion {
+    width: 80%;
+    margin: 0 auto 2em;
+}
+
+.k9-faqs-item {
+    background-color: transparent;
+    border: 2px solid #8700ff;
+}
+
+.k9-faqs-btn {
+    line-height: 1em;
+    background: transparent;
+    position: relative;
+}
+
+.k9-faqs-btn:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.k9-faqs-btn:after {
+    display: none;
+}
+
+.k9-faqs-btn:not(.collapsed) {
+    color: var(--red);
+    background-color: transparent;
+}
+
+.k9-faqs-collapse-btn {
+    height: 60px;
+    width: 60px;
+    line-height: 0.4em;
+    border-radius: 0;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.k9-faqs-btn:not(.collapsed) .k9-faqs-collapse-btn.minus {
+    z-index: 10;
+}
+
+.k9-faqs-body {
+    line-height: 1em;
+    padding-top: 0;
 }
