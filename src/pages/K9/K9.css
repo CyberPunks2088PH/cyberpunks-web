@@ -138,3 +138,75 @@
     position: relative;
     right: -35px;
 }
+
+/* Breed Stats */
+#k9-breed-stats {
+    background-color: #0c1521;
+}
+
+.k9-breed-stats-wrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.k9-breed-stats-title,
+.k9-breed-stats-name,
+.k9-breed-stats-count {
+    line-height: 0.7em;
+}
+
+.k9-breed-stats-name {
+    width: 30%;
+}
+
+.k9-breed-stats-bar-wrap {
+    width: 70%;
+}
+
+.k9-breed-stats-bar {
+    border: 3px solid;
+    height: 25px;
+    margin-right: 2%;
+}
+
+.k9-breed-stats-count {
+    width: 2%;
+}
+
+/* K9 BREED STATS CLASSES */
+/* CHANGE THE WIDTH (percentage minus 4%) DEPENDING ON THE ACTUAL NUMBER */
+.blue-mongrel {
+    border-color: var(--blue);
+    background-color: #022f9b;
+    width: 96%;
+}
+
+.brown-mongrel {
+    border-color: var(--brown);
+    background-color: #b35501;
+    width: 76%;
+}
+
+.purple-mongrel {
+    border-color: var(--purple1);
+    background-color: #7600b8;
+    width: 66%;
+}
+
+.tech {
+    border-color: var(--red1);
+    background-color: #c60038;
+    width: 56%;
+}
+
+.hound {
+    border-color: var(--neongreen);
+    background-color: #00a79e;
+    width: 46%;
+}
+
+.martian {
+    border-color: var(--lightgreen);
+    background-color: #009367;
+    width: 36%;
+}

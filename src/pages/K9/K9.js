@@ -133,12 +133,59 @@ export default function K9() {
                 </div>
             </section>
 
-            <section id="k9-breed-stats" className="mb-4">
+            <section id="k9-breed-stats" className="mb-5">
                 <div className="container">
                     <h3 className="k9-breed-stats-title text-color-1 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-4">BREED STATS</h3>
                     
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-7 font-size-250 font-size-sm-350 mb-0">BLUE MONGRELS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar blue-mongrel"></div>
+                            <p className="k9-breed-stats-count text-color-7 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-8 font-size-250 font-size-sm-350 mb-0">BROWN MONGRELS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar brown-mongrel"></div>
+                            <p className="k9-breed-stats-count text-color-8 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-5 font-size-250 font-size-sm-350 mb-0">PURPLE MONGRELS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar purple-mongrel"></div>
+                            <p className="k9-breed-stats-count text-color-5 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-6 font-size-250 font-size-sm-350 mb-0">TECHS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar tech"></div>
+                            <p className="k9-breed-stats-count text-color-6 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-3 font-size-250 font-size-sm-350 mb-0">HOUNDS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar hound"></div>
+                            <p className="k9-breed-stats-count text-color-3 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
+                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                        <p className="k9-breed-stats-name text-color-9 font-size-250 font-size-sm-350 mb-0">MARTIANS</p>
+                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                            <div className="k9-breed-stats-bar martian"></div>
+                            <p className="k9-breed-stats-count text-color-9 font-size-250 font-size-sm-350 mb-0">???</p>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            {/* border */}
+            <div className="punks-border mt-4 mb-0">
+                <div className="punks-trapezoid-bottom"></div>
+            </div>
         </div>
     )
 }
