@@ -50,7 +50,7 @@ export default function Timeline() {
                         <div className="timeline-img mb-3">
                             <img src={og} alt="OG Timeline Banner" className="w-100" />
                         </div>
-                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">The OG Series is the arrival of 208 OG CyberPunks in the Ethereum Cryptoverse. Minted manually at OpenSea and been SOLD OUT. All were hand-drawn, rendered into GIF and each has unique traits and aesthetic. One of the most unique Punk derivative in the Ethereum Blockchain.</p>
+                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">The OG Series is the arrival of 208 OG CyberPunks in the Ethereum Cryptoverse. Minted manually at Opensea and been SOLD OUT. All are hand-drawn, rendered into GIF and each has unique traits and aesthetic. One of the most unique Punk derivative in the Ethereum Blockchain.</p>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">OG CyberPunks Holders have priority access and exclusive benefits to all the future related collection.</p>
                         <a href="https://opensea.io/collection/cyberpunks2088" target="_blank" rel="noreferrer" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             BUY ON OPENSEA <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
@@ -63,7 +63,7 @@ export default function Timeline() {
                         <div className="timeline-img mb-3">
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
-                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
+                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
                         <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
                         </Link>
@@ -88,7 +88,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;MAY
+                                &nbsp;MAY - JUNE
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Generation of 2,088 CyberPunk K9s</li>
@@ -100,7 +100,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;JUNE
+                                &nbsp;JULY
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Minting Website goes live</li>
