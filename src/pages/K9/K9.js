@@ -29,17 +29,17 @@ export default function K9() {
 
     return (
         <div className="page-k9">
-            <section id="k9-banner" className="d-none d-sm-block" style={{"backgroundImage": `url(${k9Banner})`}}></section>
-            <section id="k9-banner" className="d-block d-sm-none" style={{"backgroundImage": `url(${k9BannerMobile})`}}></section>
+            <section id="k9-banner" className="d-none d-lg-block" style={{"backgroundImage": `url(${k9Banner})`}}></section>
+            <section id="k9-banner" className="d-block d-lg-none" style={{"backgroundImage": `url(${k9BannerMobile})`}}></section>
 
             <section id="k9-mint" className="py-5">
                 <div className="container">
                     <div className="k9-mint-outer row align-items-center">
-                        <div className="col-12 col-md-4">
+                        <div className="col-12 col-lg-4">
                             <h3 className="k9-mint-title vermin text-color-1 text-right font-size-300 font-size-xs-400 font-size-sm-500 mt-5 mb-2">JOIN THE PACK</h3>
                             <p className="k9-mint-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series  featuring 2,088 doggos that match the CyberPunk2088 Projekt aesthetics. Build your pack by taming K9 NFTs on the Ethereum Blockchain. Having your K9s by yourside will give you access to staking system in the future development of the project.</p>
                         </div>
-                        <div className="col-12 col-md-7 offset-md-1">
+                        <div className="col-12 col-lg-7 offset-lg-1">
                             <div className="k9-mint-box p-5">
                                 <div className="d-flex justify-content-between">
                                     <p className="k9-mint-box-text text-color-1 font-size-300 font-size-sm-450 mb-0">OG MINT</p>
