@@ -7,6 +7,7 @@ import k9BannerMobile from '../../images/K9/Window-K9-text-mobile.gif'
 import blueMongrel from '../../images/K9/Blue-Mongrel.png'
 import brownMongrel from '../../images/K9/Brown-Mongrel.png'
 import purpleMongrel from '../../images/K9/Purple-Mongrel.png'
+import allMongrel from '../../images/K9/mongrel-collage.png'
 import hound from '../../images/K9/Hound.png'
 import martian from '../../images/K9/Martian.png'
 import tech from '../../images/K9/Tech.png'
@@ -35,23 +36,23 @@ export default function K9() {
             <section id="k9-mint" className="py-5">
                 <div className="container">
                     <div className="k9-mint-outer row align-items-center">
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12 col-xl-4">
                             <h3 className="k9-mint-title vermin text-color-1 text-right font-size-300 font-size-xs-400 font-size-sm-500 mt-5 mb-2">JOIN THE PACK</h3>
                             <p className="k9-mint-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series  featuring 2,088 doggos that match the CyberPunk2088 Projekt aesthetics. Build your pack by taming K9 NFTs on the Ethereum Blockchain. Having your K9s by yourside will give you access to staking system in the future development of the project.</p>
                         </div>
-                        <div className="col-12 col-lg-7 offset-lg-1">
+                        <div className="col-12 col-xl-7 offset-xl-1">
                             <div className="k9-mint-box p-5">
-                                <div className="d-flex justify-content-between">
-                                    <p className="k9-mint-box-text text-color-1 font-size-300 font-size-sm-450 mb-0">OG MINT</p>
-                                    <p className="k9-mint-box-text text-color-4 font-size-300 font-size-sm-450 mb-0">{state.noOfMinted}/{state.totalSupply}</p>
+                                <div className="d-flex justify-content-between flex-wrap">
+                                    <p className="k9-mint-box-text k9-mint-box-title text-color-1 font-size-300 font-size-sm-450 mb-0">OG MINT</p>
+                                    <p className="k9-mint-box-text k9-mint-box-count text-color-4 font-size-300 font-size-sm-450 mb-0">{state.noOfMinted}/{state.totalSupply}</p>
                                 </div>
-                                <p className="k9-mint-box-text text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} {state.currency} + Gas</p>
-                                <p className="k9-mint-box-text text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
+                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} {state.currency} + Gas</p>
+                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
 
                                 {/* Text Field */}
                                 <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
                                     <button className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
-                                    <div className="k9-mint-amount text-center text-color-3 py-2 font-size-500">{state.quantityToMint}</div>
+                                    <div className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
                                     <button className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
                                 </div>
                                 <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
@@ -70,62 +71,107 @@ export default function K9() {
 
             <section id="k9-rarity" className="py-5">
                 <div className="container">
-                    <h3 className="k9-rarity-title vermin text-color-2 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-0">RARITY</h3>
+                    <h3 className="k9-rarity-title vermin text-color-2 text-center font-size-300 font-size-xs-400 font-size-sm-500 mb-0">RARITY</h3>
                     <div className="k9-rarity-border"></div>
 
                     <p className="k9-rarity-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-5">Each of the 2,088 CyberPunk K9  is unique built with limited number of traits. K9 #209 to #2088 are static doggos with traits randomly generated. K9 #001 to #208 are even more unique since they are GIF doggos that actually match the OG Series NFTs respectively. CyberPunk K9s have 4 breeds where Martian is the RAREST! The rarity will play a big role on the staking system once it has been implemented. So better tame your RAREST K9!</p>
 
-                    <div className="k9-rarity-traits d-flex align-items-center mb-5">
-                        <div className="k9-rarity-traits-col margin-right-5">
-                            <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
-                                <div className="k9-rarity-traits-details-wrap-right">
-                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">MARTIAN</p>
-                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Martian Breed are K9s came with the Martian Punks from an another universe. Their arrival to the Night City is still unknown. Who knows what their purpose is? This breed is the RAREST.</p>
+                    {/* For PC */}
+                    <div className="d-none d-lg-block">
+                        <div className="k9-rarity-traits d-flex align-items-center mb-5">
+                            <div className="k9-rarity-traits-col margin-right-5">
+                                <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
+                                    <div className="k9-rarity-traits-details-wrap-right">
+                                        <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">MARTIAN</p>
+                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Martian Breed are K9s came with the Martian Punks from an another universe. Their arrival to the Night City is still unknown. Who knows what their purpose is? This breed is the RAREST.</p>
+                                    </div>
+                                    <div className="k9-rarity-traits-img-wrap img-right">
+                                        <img src={martian} alt="Martian" className="w-100" />
+                                    </div>
                                 </div>
-                                <div className="k9-rarity-traits-img-wrap img-right">
-                                    <img src={martian} alt="Martian" className="w-100" />
+                                <div className="k9-rarity-traits-item d-flex align-items-center">
+                                    <div className="k9-rarity-traits-details-wrap-right">
+                                        <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">TECH</p>
+                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Tech Breed is fabricated and constructed by the Bot Punks. This K9s are operated with artificial intelligence. Also one ot the unique breeds you can have.</p>
+                                    </div>
+                                    <div className="k9-rarity-traits-img-wrap img-right">
+                                        <img src={tech} alt="Tech" className="w-100" />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="k9-rarity-traits-item d-flex align-items-center">
-                                <div className="k9-rarity-traits-details-wrap-right">
-                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">TECH</p>
-                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Tech Breed is fabricated and constructed by the Bot Punks. This K9s are operated with artificial intelligence. Also one ot the unique breeds you can have.</p>
-                                </div>
-                                <div className="k9-rarity-traits-img-wrap img-right">
-                                    <img src={tech} alt="Tech" className="w-100" />
+                            <div className="k9-rarity-traits-col margin-left-5">
+                                <div className="k9-rarity-traits-item d-flex align-items-center">
+                                    <div className="k9-rarity-traits-img-wrap img-left">
+                                        <img src={hound} alt="Hound" className="w-100" />
+                                    </div>
+                                    <div className="k9-rarity-traits-details-wrap-left">
+                                        <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">HOUND</p>
+                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Hounds are the hunter K9s. With their color, they are stealthy and extremely agile. They may not the rarest but this breed is hard to tame. It sure does!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="k9-rarity-traits-col margin-left-5">
-                            <div className="k9-rarity-traits-item d-flex align-items-center">
-                                <div className="k9-rarity-traits-img-wrap img-left">
-                                    <img src={hound} alt="Hound" className="w-100" />
+
+                        <div className="k9-rarity-traits-2 d-flex align-items-center mb-4">
+                            <div className="k9-rarity-traits-col margin-right-5">
+                                <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
+                                    <div className="k9-rarity-traits-mongrel">
+                                        <img src={purpleMongrel} alt="Purple Mongrel" className="w-100" />
+                                    </div>
+                                    <div className="k9-rarity-traits-img-wrap pos-right img-right">
+                                        <img src={brownMongrel} alt="Brown Mongrel" className="w-100 mb-2" />
+                                        <img src={blueMongrel} alt="Blue Mongrel" className="w-100 mt-2" />
+                                    </div>
                                 </div>
-                                <div className="k9-rarity-traits-details-wrap-left">
-                                    <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">HOUND</p>
-                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Hounds are the hunter K9s. With their color, they are stealthy and extremely agile. They may not the rarest but this breed is hard to tame. It sure does!</p>
+                            </div>
+                            <div className="k9-rarity-traits-col margin-left-5">
+                                <div className="k9-rarity-traits-item d-flex align-items-center">
+                                    <div className="k9-rarity-traits-details-wrap-left">
+                                        <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">MONGREL</p>
+                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Mongrels are the common breed you can found in the Night City. You can find them in 3 different colors: brown, purple and blue. They might be common but they are so loyal as they are human faction’s bestfriend.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="k9-rarity-traits-2 d-flex align-items-center mb-4">
-                        <div className="k9-rarity-traits-col margin-right-5">
-                            <div className="k9-rarity-traits-item d-flex align-items-center mb-3">
-                                <div className="k9-rarity-traits-mongrel">
-                                    <img src={purpleMongrel} alt="Purple Mongrel" className="w-100" />
+                    {/* For Tablet and Mobile */}
+                    <div className="d-block d-lg-none">
+                        <div className="k9-rarity-traits-mobile">
+                            <div className="k9-rarity-traits-item flex-wrap d-flex align-items-center mb-3">
+                                <div className="k9-rarity-traits-details-wrap k9-rarity-traits-details-wrap-right order-2 order-sm-1">
+                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-300 font-size-sm-350 mb-0">MARTIAN</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-200 font-size-sm-210 mb-0">Martian Breed are K9s came with the Martian Punks from an another universe. Their arrival to the Night City is still unknown. Who knows what their purpose is? This breed is the RAREST.</p>
                                 </div>
-                                <div className="k9-rarity-traits-img-wrap pos-right img-right">
-                                    <img src={brownMongrel} alt="Brown Mongrel" className="w-100 mb-2" />
-                                    <img src={blueMongrel} alt="Blue Mongrel" className="w-100 mt-2" />
+                                <div className="k9-rarity-traits-img-wrap img-right order-1 order-sm-2">
+                                    <img src={martian} alt="Martian" className="w-100" />
                                 </div>
                             </div>
-                        </div>
-                        <div className="k9-rarity-traits-col margin-left-5">
-                            <div className="k9-rarity-traits-item d-flex align-items-center">
-                                <div className="k9-rarity-traits-details-wrap-left">
-                                    <p className="k9-rarity-traits-title text-color-1 font-size-250 font-size-sm-350 mb-0">MONGREL</p>
-                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Mongrels are the common breed you can found in the Night City. You can find them in 3 different colors: brown, purple and blue. They might be common but they are so loyal as they are human faction’s bestfriend.</p>
+                            <div className="k9-rarity-traits-item flex-wrap d-flex align-items-center">
+                                <div className="k9-rarity-traits-img-wrap img-left">
+                                    <img src={hound} alt="Hound" className="w-100" />
+                                </div>
+                                <div className="k9-rarity-traits-details-wrap k9-rarity-traits-details-wrap-left">
+                                    <p className="k9-rarity-traits-title text-color-1 font-size-300 font-size-sm-350 mb-0">HOUND</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-200 font-size-sm-210 mb-0">Hounds are the hunter K9s. With their color, they are stealthy and extremely agile. They may not the rarest but this breed is hard to tame. It sure does!</p>
+                                </div>
+                            </div>
+                            <div className="k9-rarity-traits-item flex-wrap d-flex align-items-center">
+                                <div className="k9-rarity-traits-details-wrap k9-rarity-traits-details-wrap-right order-2 order-sm-1">
+                                    <p className="k9-rarity-traits-title text-color-1 text-right font-size-300 font-size-sm-350 mb-0">TECH</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-200 font-size-sm-210 mb-0">Tech Breed is fabricated and constructed by the Bot Punks. This K9s are operated with artificial intelligence. Also one ot the unique breeds you can have.</p>
+                                </div>
+                                <div className="k9-rarity-traits-img-wrap img-right order-1 order-sm-2">
+                                    <img src={tech} alt="Tech" className="w-100" />
+                                </div>
+                            </div>
+                            <div className="k9-rarity-traits-item flex-wrap d-flex align-items-center">
+                                <div className="k9-rarity-traits-img-wrap img-left">
+                                    <img src={allMongrel} alt="Mongrels" className="w-100" />
+                                </div>
+                                <div className="k9-rarity-traits-details-wrap k9-rarity-traits-details-wrap-left">
+                                    <p className="k9-rarity-traits-title text-color-1 font-size-300 font-size-sm-350 mb-0">MONGREL</p>
+                                    <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-200 font-size-sm-210 mb-0">Mongrels are the common breed you can found in the Night City. You can find them in 3 different colors: brown, purple and blue. They might be common but they are so loyal as they are human faction’s bestfriend.</p>
                                 </div>
                             </div>
                         </div>
@@ -137,46 +183,100 @@ export default function K9() {
                 <div className="container">
                     <h3 className="k9-breed-stats-title text-color-1 text-center font-size-300 font-size-sm-400 font-size-sm-500 mb-4">BREED STATS</h3>
                     
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-7 font-size-250 font-size-sm-350 mb-0">BLUE MONGRELS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar blue-mongrel"></div>
-                            <p className="k9-breed-stats-count text-color-7 font-size-250 font-size-sm-350 mb-0">29%</p>
+                    <div className="d-none d-lg-block">
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-7 font-size-350 mb-0">BLUE MONGRELS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar blue-mongrel"></div>
+                                <p className="k9-breed-stats-count text-color-7 font-size-350 mb-0">29%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-8 font-size-350 mb-0">BROWN MONGRELS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar brown-mongrel"></div>
+                                <p className="k9-breed-stats-count text-color-8 font-size-350 mb-0">25%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-5 font-size-350 mb-0">PURPLE MONGRELS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar purple-mongrel"></div>
+                                <p className="k9-breed-stats-count text-color-5 font-size-350 mb-0">21%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-6 font-size-350 mb-0">TECHS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar tech"></div>
+                                <p className="k9-breed-stats-count text-color-6 font-size-350 mb-0">8%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-3 font-size-350 mb-0">HOUNDS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar hound"></div>
+                                <p className="k9-breed-stats-count text-color-3 font-size-350 mb-0">6%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-9 font-size-350 mb-0">MARTIANS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar martian"></div>
+                                <p className="k9-breed-stats-count text-color-9 font-size-350 mb-0">1%</p>
+                            </div>
                         </div>
                     </div>
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-8 font-size-250 font-size-sm-350 mb-0">BROWN MONGRELS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar brown-mongrel"></div>
-                            <p className="k9-breed-stats-count text-color-8 font-size-250 font-size-sm-350 mb-0">25%</p>
+
+                    {/* For Tab and Mobile */}
+                    <div className="d-block d-lg-none">
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar blue-mongrel">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-7 font-size-250 font-size-sm-280 font-size-md-350 mb-0">BLUE MONGRELS</p>
+                                    <p className="k9-breed-stats-count text-color-7 font-size-250 font-size-sm-280 font-size-md-350 mb-0">29%</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-5 font-size-250 font-size-sm-350 mb-0">PURPLE MONGRELS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar purple-mongrel"></div>
-                            <p className="k9-breed-stats-count text-color-5 font-size-250 font-size-sm-350 mb-0">21%</p>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar brown-mongrel">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">BROWN MONGRELS</p>
+                                    <p className="k9-breed-stats-count text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">25%</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-6 font-size-250 font-size-sm-350 mb-0">TECHS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar tech"></div>
-                            <p className="k9-breed-stats-count text-color-6 font-size-250 font-size-sm-350 mb-0">8%</p>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar purple-mongrel">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-5 font-size-250 font-size-sm-280 font-size-md-350 mb-0">PURPLE MONGRELS</p>
+                                    <p className="k9-breed-stats-count text-color-5 font-size-250 font-size-sm-280 font-size-md-350 mb-0">21%</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-3 font-size-250 font-size-sm-350 mb-0">HOUNDS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar hound"></div>
-                            <p className="k9-breed-stats-count text-color-3 font-size-250 font-size-sm-350 mb-0">6%</p>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar tech">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-6 font-size-250 font-size-sm-280 font-size-md-350 mb-0">TECHS</p>
+                                    <p className="k9-breed-stats-count text-color-6 font-size-250 font-size-sm-280 font-size-md-350 mb-0">8%</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                        <p className="k9-breed-stats-name text-color-9 font-size-250 font-size-sm-350 mb-0">MARTIANS</p>
-                        <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                            <div className="k9-breed-stats-bar martian"></div>
-                            <p className="k9-breed-stats-count text-color-9 font-size-250 font-size-sm-350 mb-0">1%</p>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar hound">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-3 font-size-250 font-size-sm-280 font-size-md-350 mb-0">HOUNDS</p>
+                                    <p className="k9-breed-stats-count text-color-3 font-size-250 font-size-sm-280 font-size-md-350 mb-0">6%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar martian">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-9 font-size-250 font-size-sm-280 font-size-md-350 mb-0">MARTIANS</p>
+                                    <p className="k9-breed-stats-count text-color-9 font-size-250 font-size-sm-280 font-size-md-350 mb-0">1%</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

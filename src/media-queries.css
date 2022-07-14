@@ -24,6 +24,18 @@
     .k9-faqs-btn {
         font-size: 1.8em;
     }
+
+    .k9-mint-title {
+        text-align: center;
+    }
+
+    .k9-mint-sub {
+        margin-bottom: 1.2em !important;
+    }
+
+    .k9-mint-box-text {
+        font-size: 3.4em !important;
+    }
 }
 
 @media (max-width: 991px) {
@@ -43,54 +55,55 @@
         width: 60% !important;
     }
 
-    .k9-mint-title {
-        text-align: center;
-    }
-
-    .k9-mint-sub {
-        margin-bottom: 1.2em !important;
-    }
-
-    .k9-rarity-traits-2 .k9-rarity-traits-col:first-child {
-        width: 40% !important;
-    }
-
-    .k9-rarity-traits-2 .k9-rarity-traits-col:last-child {
-        width: 58% !important;
-    }
-
-    .k9-mint-box-text {
-        font-size: 3.4em !important;
-    }
-
-    .k9-rarity-traits-2 .k9-rarity-traits-mongrel {
-        right: -20px !important;
-        margin-left: 0 !important;
-        width: 43% !important;
-    }
-
-    .k9-rarity-traits-2 .k9-rarity-traits-img-wrap {
-        width: 43% !important;
-    }
-
-    .k9-rarity-traits-details-wrap-left {
-        width: 100% !important;
-    }
-
-    .k9-rarity-traits-sub {
-        font-size: 2.3em !important;
-    }
-
     .k9-breed-stats-wrap {
         width: 100% !important;
     }
 
-    .k9-breed-stats-name {
-        width: 35% !important;
+    .k9-breed-stats-bar {
+        height: 40px !important;
+        padding: 0 1% !important;
     }
 
-    .k9-breed-stats-bar-wrap {
-        width: 75% !important;
+    .k9-breed-stats-bar-text-wrap {
+        width: 100%;
+    }
+
+    .k9-breed-stats-name,
+    .k9-breed-stats-count {
+        line-height: 0.6em !important;
+    }
+
+    .k9-breed-stats-name {
+        width: 86% !important;
+    }
+
+    .k9-breed-stats-count {
+        width: 20% !important;
+        text-align: right;
+    }
+
+    .blue-mongrel {
+        width: 100% !important;
+    }
+    
+    .brown-mongrel {
+        width: 90% !important;
+    }
+    
+    .purple-mongrel {
+        width: 80% !important;
+    }
+    
+    .tech {
+        width: 70% !important;
+    }
+    
+    .hound {
+        width: 60% !important;
+    }
+    
+    .martian {
+        width: 50% !important;
     }
 }
 
@@ -150,6 +163,23 @@
     .k9-faqs-body {
         font-size: 2em !important;
     }
+
+    .k9-rarity-traits-title {
+        text-align: left !important;
+    }
+
+    .k9-rarity-traits-item {
+        margin-bottom: 2rem !important;
+    }
+
+    .k9-rarity-sub {
+        margin-bottom: 2rem !important;
+    }
+
+    .k9-breed-stats-name,
+    .k9-breed-stats-count {
+        line-height: 0.8em !important;
+    }
 }
 
 @media (max-width: 568px) {
@@ -170,6 +200,33 @@
     .timeline-wrap-mobile {
         padding: 0 20px;
     }
+
+    .k9-mint-title {
+        font-size: 3.5em !important;
+        margin-top: 0 !important;
+    }
+
+    .k9-mint-sub {
+        line-height: 1em !important;
+    }
+
+    .k9-mint-amount {
+        line-height: 0.6em !important;
+    }
+
+    .k9-rarity-traits-img-wrap.img-right {
+        right: 0 !important;
+        left: 0;
+    }
+    
+    .k9-rarity-traits-img-wrap.img-left {
+        left: 0 !important;
+    }
+
+    .k9-rarity-traits-details-wrap-right {
+        margin-right: 0 !important;
+        margin-left: 5%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -188,6 +245,40 @@
     .timeline-content.margin-left-only{
         margin-left: 30px !important;
     }
+
+    .k9-rarity-traits-details-wrap {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+    
+    .k9-rarity-traits-img-wrap {
+        width: 50% !important;
+        margin: 0 auto !important;
+    }
+
+    .blue-mongrel {
+        width: 100% !important;
+    }
+    
+    .brown-mongrel {
+        width: 92% !important;
+    }
+    
+    .purple-mongrel {
+        width: 85% !important;
+    }
+    
+    .tech {
+        width: 73% !important;
+    }
+    
+    .hound {
+        width: 67% !important;
+    }
+    
+    .martian {
+        width: 60% !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -202,5 +293,24 @@
 
     .timeline-list-item {
         padding-left: 2rem !important;
+    }
+
+    .k9-mint-box-title,
+    .k9-mint-box-count {
+        width: 100%;
+        text-align: center;
+        font-size: 3.5em !important;
+    }
+
+    .k9-mint-box-title {
+        font-weight: bold;
+    }
+
+    .k9-mint-box-count {
+        margin-bottom: 0.5em !important;
+    }
+
+    .k9-mint-box-text-prices {
+        font-size: 2.3em !important;
     }
 }
