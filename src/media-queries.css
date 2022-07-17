@@ -180,6 +180,17 @@
     .k9-breed-stats-count {
         line-height: 0.8em !important;
     }
+
+    .k9-faqs-collapse-btn {
+        height: 40px !important;
+        width: 40px !important;
+        padding-right: 10px !important;
+        padding-bottom: 5px !important;
+    }
+
+    #k9-banner {
+        height: 80vh !important;
+    }
 }
 
 @media (max-width: 568px) {
@@ -226,6 +237,19 @@
     .k9-rarity-traits-details-wrap-right {
         margin-right: 0 !important;
         margin-left: 5%;
+    }
+
+    .k9-faqs-btn {
+        padding-right: 60px !important;
+    }
+
+    .k9-faqs-border {
+        width: 150px !important;
+        height: 6px !important;
+    }
+
+    #k9-banner {
+        height: 60vh !important;
     }
 }
 
