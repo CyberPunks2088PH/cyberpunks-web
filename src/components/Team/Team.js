@@ -3,7 +3,7 @@ import './Team.css'
 import rounikun from '../../images/PFP/rounikun.gif'
 import c6feels from '../../images/PFP/6feels.gif'
 import phantompirate from '../../images/PFP/phantompirate.gif'
-import ignitiusmalik from '../../images/PFP/ignitiusmalik.gif'
+import dracarysdude from '../../images/PFP/dracarysdude.gif'
 
 export default function Ecosystem() {
     return (
@@ -39,9 +39,9 @@ export default function Ecosystem() {
                     </div>
                     <div className="col-12 col-md-6 col-lg-3">
                         <div className="team-img">
-                            <img src={ignitiusmalik} alt="Ignitius Malik PFP" className="w-100" />
+                            <img src={dracarysdude} alt="Dracarys Dude PFP" className="w-100" />
                         </div>
-                        <p className="team-sub-no-link text-center text-color-1 font-size-300">@IGNITIUSMALIK</p>
+                        <p className="team-sub-no-link text-center text-color-1 font-size-300">@DRACARYSDUDE</p>
                         <p className="team-desc text-center text-color-2 font-size-250">Web3 Advisor</p>
                     </div>
                 </div>
