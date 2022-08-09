@@ -1,5 +1,4 @@
 import './OGSeries.css'
-import { useState } from 'react'
 
 import k9 from '../../images/K9.png'
 

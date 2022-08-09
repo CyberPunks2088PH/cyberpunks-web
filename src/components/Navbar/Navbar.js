@@ -94,9 +94,9 @@ export default function Navbar(props) {
                             <HashLink className="text-color-2 font-size-220" smooth to="#team" scroll={el => scrollWithOffset(el)}>TEAM</HashLink>
                         </li>
                         <li>
-                            <button type="button" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
+                            <a href="/k9#k9-mint" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
                                 MINT NOW
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>

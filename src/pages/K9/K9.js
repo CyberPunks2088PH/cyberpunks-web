@@ -1,7 +1,5 @@
 import './K9.css'
 
-import { useState } from 'react'
-
 import k9Banner from '../../images/K9/Window-K9-text.gif'
 import k9BannerMobile from '../../images/K9/Window-K9-text-mobile.gif'
 import blueMongrel from '../../images/K9/Blue-Mongrel.png'
@@ -11,22 +9,67 @@ import allMongrel from '../../images/K9/mongrel-collage.png'
 import hound from '../../images/K9/Hound.png'
 import martian from '../../images/K9/Martian.png'
 import tech from '../../images/K9/Tech.png'
+import popup from '../../images/pop-up.gif'
+
+import { useState, useEffect } from 'react'
+import { Modal } from 'react-bootstrap'
+import { configureWeb3 } from './../../utils/configureWeb3'
+// DEVELOPMENT
+import { k9Abi, k9Address } from '../../utils/contracts/devContract'
+// PRODUCTION
+// import { k9Abi, k9Address } from '../../utils/contracts/mainContract'
 
 export default function K9() {
+    const [web3, setWeb3] = useState()
     const [state, setState] = useState({
+        account: "",
+        hasMetamask: "",
+        isConnected: "",
         noOfMinted: 988,
+        noOfFreeClaimMinted: 988,
+        currentMinter: "",
         totalSupply: 2088,
         pricePerK9: 0.03,
-        currency: 'ETH',
         maxMint: 4,
         quantityToMint: 1,
         totalPrice: 0.03,
     })
 
+    // Modals
+    const [showOnError, setShowOnError] = useState(false)
+    const handleCloseOnError = () => setShowOnError(false)
+    const handleShowOnError = () => setShowOnError(true)
+
     // state updater
     const _setState = (name, value) => {
         setState(prevState => ({...prevState, [name]: value}))
     }
+
+    const quantityChanger = symbol => {
+        if (symbol === '+') _setState("quantityToMint", state.quantityToMint + 1)
+        else _setState("quantityToMint", state.quantityToMint - 1)
+    }
+
+    useEffect(() => {
+        async function _init() {
+            // DEVELOPMENT
+            let rpcUrl = `https://rinkeby.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
+            // PRODUCTION
+            // let rpcUrl = `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
+
+            let web3 = configureWeb3(rpcUrl)
+            let contract = new web3.eth.Contract(k9Abi, k9Address)
+
+            // get current minter
+            const currentMinter = await contract.methods.currentMinter().call()
+            if (currentMinter === "NAN") _setState("currentMinter", "WAITING...")
+            else if (currentMinter === "OG") _setState("currentMinter", "OG MINT")
+            else if (currentMinter === "WL") _setState("currentMinter", "WL MINT")
+            else if (currentMinter === "PUB") _setState("currentMinter", "PUB MINT")
+        }
+
+        _init()
+    }, [])
 
     return (
         <div className="page-k9">
@@ -43,17 +86,17 @@ export default function K9() {
                         <div className="col-12 col-xl-7 offset-xl-1">
                             <div className="k9-mint-box p-5">
                                 <div className="d-flex justify-content-between flex-wrap">
-                                    <p className="k9-mint-box-text k9-mint-box-title text-color-1 font-size-300 font-size-sm-450 mb-0">OG MINT</p>
+                                    <p className="k9-mint-box-text k9-mint-box-title text-color-1 font-size-300 font-size-sm-450 mb-0">{state.currentMinter}</p>
                                     <p className="k9-mint-box-text k9-mint-box-count text-color-4 font-size-300 font-size-sm-450 mb-0">{state.noOfMinted}/{state.totalSupply}</p>
                                 </div>
-                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} {state.currency} + Gas</p>
+                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} ETH + Gas</p>
                                 <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
 
                                 {/* Text Field */}
                                 <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
-                                    <button className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
+                                    <button onClick={() => quantityChanger("-")} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
                                     <div className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
-                                    <button className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
+                                    <button onClick={() => quantityChanger("+")} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
                                 </div>
                                 <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
                                     <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">TOTAL</p>
@@ -417,6 +460,22 @@ export default function K9() {
                     </div>
                 </div>
             </section>
+
+            {/* Modals */}
+            <Modal show={showOnError} onHide={handleCloseOnError} backdrop="static" keyboard={false} size="md" centered>
+                <Modal.Body>
+                    {/* Design */}
+                    <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 pt-4 mb-0">X</button>
+                    <div className="modal-bg">
+                        <img src={popup} alt="Popup" className="w-100" />
+                    </div>
+
+                    {/* Place Contents here */}
+                    <div className="modal-inner-content">
+                        
+                    </div>
+                </Modal.Body>
+            </Modal>
         </div>
     )
 }

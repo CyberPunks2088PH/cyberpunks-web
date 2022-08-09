@@ -27,13 +27,13 @@
   margin-left: 20px;
 }
 
-#punks-nav li a {
+#punks-nav li a:not(.punks-nav-btn) {
   padding: 6px 10px;
   text-decoration: none;
 }
 
-#punks-nav li a:hover,
-#punks-nav li a:focus {
+#punks-nav li a:not(.punks-nav-btn):hover,
+#punks-nav li a:not(.punks-nav-btn):focus {
   color: var(--red);
 }
 
