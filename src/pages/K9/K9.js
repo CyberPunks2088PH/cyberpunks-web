@@ -25,7 +25,9 @@ export default function K9() {
         account: "",
         hasMetamask: "",
         isConnected: "",
-        noOfMinted: 988,
+        isReadyToMint: false,
+        freeClaimQty: 208,
+        noOfMinted: 0,
         noOfFreeClaimMinted: 988,
         currentMinter: "",
         totalSupply: 2088,
@@ -33,6 +35,7 @@ export default function K9() {
         maxMint: 4,
         quantityToMint: 1,
         totalPrice: 0.03,
+        errorMsg: "",
     })
 
     // Modals
@@ -66,6 +69,25 @@ export default function K9() {
             else if (currentMinter === "OG") _setState("currentMinter", "OG MINT")
             else if (currentMinter === "WL") _setState("currentMinter", "WL MINT")
             else if (currentMinter === "PUB") _setState("currentMinter", "PUB MINT")
+            else _setState("currentMinter", "OG FREE CLAIM")
+
+            // get number of minted
+            if (currentMinter !== "OG FREE CLAIM") { // Not Free Claim
+                const lastMintedId = await contract.methods.getLastMintedTokenId().call()
+                const noOfMinted = lastMintedId - state.freeClaimQty
+                _setState("noOfMinted", noOfMinted)
+            } else { // Free Claim
+                const lastMintedId = await contract.methods.getLastMintedTokenId().call()
+                const noOfFreeMintedNFT = await contract.methods.noOfFreeClaimsMinted().call()
+                _setState("noOfMinted", lastMintedId + noOfFreeMintedNFT)
+            }
+
+            // price per k9
+            let cost = 0.00
+            if (currentMinter == "OG") cost = await contract.methods.oGMintCost().call()
+            else if (currentMinter == "WL") cost = await contract.methods.whitelistedMintCost().call()
+            else if (currentMinter == "PUB") cost = await contract.methods.publicMintCost().call()
+            _setState("pricePerK9", web3.utils.fromWei(cost.toString(), "ether"))
         }
 
         _init()
@@ -104,7 +126,7 @@ export default function K9() {
                                 </div>
 
                                 <div className="k9-mint-btn-wrap">
-                                    <button className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                    <button disabled={!state.isReadyToMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                 </div>
                             </div>
                         </div>
@@ -465,14 +487,16 @@ export default function K9() {
             <Modal show={showOnError} onHide={handleCloseOnError} backdrop="static" keyboard={false} size="md" centered>
                 <Modal.Body>
                     {/* Design */}
-                    <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 pt-4 mb-0">X</button>
+                    <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button>
                     <div className="modal-bg">
                         <img src={popup} alt="Popup" className="w-100" />
                     </div>
 
                     {/* Place Contents here */}
                     <div className="modal-inner-content">
-                        
+                        <div className="d-flex h-100 justify-content-center align-items-center">
+                            <p className="text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0">{state.errorMsg}</p>
+                        </div>
                     </div>
                 </Modal.Body>
             </Modal>
