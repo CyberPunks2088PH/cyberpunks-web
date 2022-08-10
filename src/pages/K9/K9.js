@@ -24,17 +24,17 @@ export default function K9() {
     const [state, setState] = useState({
         account: "",
         hasMetamask: "",
-        isConnected: "",
-        isReadyToMint: false,
+        isConnected: false,
+        isLoaded: false,
         freeClaimQty: 208,
         noOfMinted: 0,
         noOfFreeClaimMinted: 988,
         currentMinter: "",
         totalSupply: 2088,
-        pricePerK9: 0.03,
+        pricePerK9: 0,
         maxMint: 4,
         quantityToMint: 1,
-        totalPrice: 0.03,
+        totalPrice: 0,
         errorMsg: "",
     })
 
@@ -49,8 +49,21 @@ export default function K9() {
     }
 
     const quantityChanger = symbol => {
-        if (symbol === '+') _setState("quantityToMint", state.quantityToMint + 1)
-        else _setState("quantityToMint", state.quantityToMint - 1)
+        const qty = parseInt(document.getElementById("qtyToMint").textContent)
+
+        if (symbol === '+') {
+            if (qty + 1 <= state.maxMint) {
+                _setState("quantityToMint", qty + 1)
+                const price = (qty + 1) * state.pricePerK9
+                _setState("totalPrice", price)
+            }
+        } else {
+            if (qty - 1 >= 1) {
+                _setState("quantityToMint", qty - 1)
+                const price = (qty - 1) * state.pricePerK9
+                _setState("totalPrice", price)
+            }
+        }
     }
 
     useEffect(() => {
@@ -82,12 +95,19 @@ export default function K9() {
                 _setState("noOfMinted", lastMintedId + noOfFreeMintedNFT)
             }
 
-            // price per k9
+            // price per k9 and max mint
             let cost = 0.00
-            if (currentMinter == "OG") cost = await contract.methods.oGMintCost().call()
-            else if (currentMinter == "WL") cost = await contract.methods.whitelistedMintCost().call()
-            else if (currentMinter == "PUB") cost = await contract.methods.publicMintCost().call()
+            if (currentMinter === "OG") cost = await contract.methods.oGMintCost().call()
+            else if (currentMinter === "WL") cost = await contract.methods.whitelistedMintCost().call()
+            else if (currentMinter === "PUB") cost = await contract.methods.publicMintCost().call()
             _setState("pricePerK9", web3.utils.fromWei(cost.toString(), "ether"))
+            _setState("totalPrice", web3.utils.fromWei(cost.toString(), "ether"))
+            
+            const maxMint = await contract.methods.maxMintQuantity().call()
+            _setState("maxMint", maxMint)
+
+            // make the loaded to true
+            _setState("isLoaded", true)
         }
 
         _init()
@@ -116,9 +136,9 @@ export default function K9() {
 
                                 {/* Text Field */}
                                 <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
-                                    <button onClick={() => quantityChanger("-")} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
-                                    <div className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
-                                    <button onClick={() => quantityChanger("+")} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
+                                    <button onClick={() => quantityChanger("-")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
+                                    <div id="qtyToMint" className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
+                                    <button onClick={() => quantityChanger("+")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
                                 </div>
                                 <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
                                     <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">TOTAL</p>
@@ -126,7 +146,7 @@ export default function K9() {
                                 </div>
 
                                 <div className="k9-mint-btn-wrap">
-                                    <button disabled={!state.isReadyToMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                    <button disabled={!state.isLoaded} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                 </div>
                             </div>
                         </div>
