@@ -251,6 +251,10 @@
     #k9-banner {
         height: 60vh !important;
     }
+
+    .modal-icon {
+        font-size: 4em !important;
+    }
 }
 
 @media (max-width: 480px) {

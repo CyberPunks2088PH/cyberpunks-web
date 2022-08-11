@@ -10,20 +10,22 @@ import hound from '../../images/K9/Hound.png'
 import martian from '../../images/K9/Martian.png'
 import tech from '../../images/K9/Tech.png'
 import popup from '../../images/pop-up.gif'
+import metamask from '../../images/metamask.png'
 
 import { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { configureWeb3 } from './../../utils/configureWeb3'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
 // DEVELOPMENT
 import { k9Abi, k9Address } from '../../utils/contracts/devContract'
 // PRODUCTION
 // import { k9Abi, k9Address } from '../../utils/contracts/mainContract'
 
 export default function K9() {
-    const [web3, setWeb3] = useState()
     const [state, setState] = useState({
         account: "",
-        hasMetamask: "",
+        ethBalance: 0,
         isConnected: false,
         isLoaded: false,
         freeClaimQty: 208,
@@ -39,6 +41,12 @@ export default function K9() {
     })
 
     // Modals
+    const [showWrongNetwork, setShowWrongNetwork] = useState(false)
+    const handleCloseWrongNetwork = () => setShowWrongNetwork(false)
+    const handleShowWrongNetwork = () => setShowWrongNetwork(true)
+    const [showMetamaskInstall, setShowMetamaskInstall] = useState(false)
+    const handleCloseMetamaskInstall = () => setShowMetamaskInstall(false)
+    const handleShowMetamaskInstall = () => setShowMetamaskInstall(true)
     const [showOnError, setShowOnError] = useState(false)
     const handleCloseOnError = () => setShowOnError(false)
     const handleShowOnError = () => setShowOnError(true)
@@ -64,6 +72,38 @@ export default function K9() {
                 _setState("totalPrice", price)
             }
         }
+    }
+
+    const connectAndMint = async () => {
+        // Connect
+        const _web3 = configureWeb3()
+
+        if (_web3 !== 1) { 
+            const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
+            
+            // PRODUCTION
+            // if (netId === 1) {
+            // DEVELOPMENT
+            if (netId === 4) {
+                const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
+                if (acct.length > 0) {
+                    _setState("isConnected", true)
+                    _setState("account", acct[0])
+
+                    const ethBalance = await _web3.eth.getBalance(acct[0])
+                    _setState("ethBalance", _web3.utils.fromWei(ethBalance.toString(), "ether"))
+
+                    // MINTING PROCESS START
+
+                    // MINTING PROCESS END
+                } else {
+                    _setState("errorMsg", "No account found!")
+                    handleShowOnError()
+                }
+            } else {
+                handleShowWrongNetwork()
+            }
+        } else handleShowMetamaskInstall()
     }
 
     useEffect(() => {
@@ -146,7 +186,7 @@ export default function K9() {
                                 </div>
 
                                 <div className="k9-mint-btn-wrap">
-                                    <button disabled={!state.isLoaded} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                    <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                 </div>
                             </div>
                         </div>
@@ -504,7 +544,33 @@ export default function K9() {
             </section>
 
             {/* Modals */}
+            {/* Error Message */}
             <Modal show={showOnError} onHide={handleCloseOnError} backdrop="static" keyboard={false} size="md" centered>
+                <Modal.Body>
+                    {/* Design */}
+                    {/* <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button> */}
+                    <div className="modal-bg">
+                        <img src={popup} alt="Popup" className="w-100" />
+                    </div>
+
+                    {/* Place Contents here */}
+                    <div className="modal-inner-content">
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center">
+                            <div className="text-center mb-3">
+                                <FontAwesomeIcon className="modal-icon" color="red" size="6x" icon={faExclamationCircle} />
+                            </div>
+                            
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0 leading-7">{state.errorMsg}</p>
+                            <button onClick={handleCloseWrongNetwork} className="btn btn-custom-1 px-4 font-size-180 font-size-sm-210 leading-tight">
+                                CLOSE
+                            </button>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
+
+            {/* No Metamask Installed */}
+            <Modal show={showMetamaskInstall} onHide={handleCloseMetamaskInstall} backdrop="static" keyboard={false} size="md" centered>
                 <Modal.Body>
                     {/* Design */}
                     <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button>
@@ -514,8 +580,41 @@ export default function K9() {
 
                     {/* Place Contents here */}
                     <div className="modal-inner-content">
-                        <div className="d-flex h-100 justify-content-center align-items-center">
-                            <p className="text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0">{state.errorMsg}</p>
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center">
+                            <div className="mx-auto" style={{"textAlign": "center", "width": "50%"}}>
+                                <img src={metamask} alt="Metamask logo" className="w-100" />
+                            </div>
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-4 leading-5">Metamask is currently not installed</p>
+                            <a href="https://metamask.io/download" target="_blank" rel="noreferrer" className="btn btn-custom-1 px-4 font-size-180 font-size-sm-210 leading-tight">
+                                Install Metamask
+                            </a>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
+
+            {/* Wrong Network */}
+            <Modal show={showWrongNetwork} onHide={handleCloseWrongNetwork} backdrop="static" keyboard={false} size="md" centered>
+                <Modal.Body>
+                    {/* Design */}
+                    <div className="modal-bg">
+                        <img src={popup} alt="Popup" className="w-100" />
+                    </div>
+
+                    {/* Place Contents here */}
+                    <div className="modal-inner-content">
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center">
+                            <div className="text-center mb-3">
+                                <FontAwesomeIcon className="modal-icon" color="green" size="6x" icon={faExclamationCircle} />
+                            </div>
+
+                            {/* PRODUCTION */}
+                            {/* <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-4 leading-5">Please connect to ETH Mainnet.</p> */}
+                            {/* DEVELOPMENT */}
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-4 leading-7">Please connect to ETH Rinkeby testnet.</p>
+                            <button onClick={handleCloseWrongNetwork} className="btn btn-custom-1 px-4 font-size-180 font-size-sm-210 leading-tight">
+                                CLOSE
+                            </button>
                         </div>
                     </div>
                 </Modal.Body>
