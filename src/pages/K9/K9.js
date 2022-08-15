@@ -16,7 +16,7 @@ import { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { configureWeb3 } from './../../utils/configureWeb3'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons'
 // DEVELOPMENT
 import { k9Abi, k9Address } from '../../utils/contracts/devContract'
 // PRODUCTION
@@ -37,10 +37,23 @@ export default function K9() {
         maxMint: 4,
         quantityToMint: 1,
         totalPrice: 0,
+        txHash: "",
         errorMsg: "",
     })
 
+    // Other Variables
+    // PRODUCTION
+    // const explorerUrl = "https://etherscan.io/tx/"
+    // DEVELOPMENT
+    const explorerUrl = "https://rinkeby.etherscan.io/tx/"
+
     // Modals
+    const [showPleaseWait, setShowPleaseWait] = useState(false)
+    const handleClosePleaseWait = () => setShowPleaseWait(false)
+    const handleShowPleaseWait = () => setShowPleaseWait(true)
+    const [showSuccessful, setShowSuccessful] = useState(false)
+    const handleCloseSuccessful = () => setShowSuccessful(false)
+    const handleShowSuccessful = () => setShowSuccessful(true)
     const [showWrongNetwork, setShowWrongNetwork] = useState(false)
     const handleCloseWrongNetwork = () => setShowWrongNetwork(false)
     const handleShowWrongNetwork = () => setShowWrongNetwork(true)
@@ -86,6 +99,7 @@ export default function K9() {
             // DEVELOPMENT
             if (netId === 4) {
                 const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
+                console.log(acct)
                 if (acct.length > 0) {
                     _setState("isConnected", true)
                     _setState("account", acct[0])
@@ -93,9 +107,18 @@ export default function K9() {
                     const ethBalance = await _web3.eth.getBalance(acct[0])
                     _setState("ethBalance", _web3.utils.fromWei(ethBalance.toString(), "ether"))
 
-                    // MINTING PROCESS START
+                    if (parseFloat(ethBalance) >= state.totalPrice) {
+                        if (state.currentMinter !== "OG FREE CLAIM") { // NOT FREE MINT
+                            // MINTING PROCESS START
+                            
+                            // MINTING PROCESS END
+                        } else { // FREE MINT
 
-                    // MINTING PROCESS END
+                        }
+                    } else {
+                        _setState("errorMsg", "Insufficient funds to mint!")
+                        handleShowOnError()
+                    }
                 } else {
                     _setState("errorMsg", "No account found!")
                     handleShowOnError()
@@ -544,6 +567,58 @@ export default function K9() {
             </section>
 
             {/* Modals */}
+            {/* Modal for waiting */}
+            <Modal show={showPleaseWait} onHide={handleClosePleaseWait} backdrop="static" keyboard={false} size="md" centered>
+                <Modal.Body>
+                    {/* Design */}
+                    {/* <button onClick={handleCloseOnError} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button> */}
+                    <div className="modal-bg">
+                        <img src={popup} alt="Popup" className="w-100" />
+                    </div>
+
+                    {/* Place Contents here */}
+                    <div className="modal-inner-content">
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center p-2">
+                            <div className="text-center mb-3">
+                                <FontAwesomeIcon className="modal-icon" color="#09fef1" size="6x" icon={faSpinner} spin />
+                            </div>
+                            
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0 leading-7">Please wait while we are minting your NFT/s.</p>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal> 
+
+            {/* Successful */}
+            <Modal show={showSuccessful} onHide={handleCloseSuccessful} backdrop="static" keyboard={false} size="md" centered>
+                <Modal.Body>
+                    {/* Design */}
+                    {/* <button onClick={handleCloseSuccessful} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button> */}
+                    <div className="modal-bg">
+                        <img src={popup} alt="Popup" className="w-100" />
+                    </div>
+
+                    {/* Place Contents here */}
+                    <div className="modal-inner-content">
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center p-2">
+                            <div className="text-center mb-3">
+                                <FontAwesomeIcon className="modal-icon" color="green" size="6x" icon={faCheckCircle} />
+                            </div>
+                            
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-2 leading-7">Your K9's are successfully minted.</p>
+                            <div className="d-flex flex-wrap justify-content-center align-items-center">
+                                <button onClick={handleCloseSuccessful} className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1">
+                                    CLOSE
+                                </button>
+                                <button className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                                    VIEW ON ETHERSCAN
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
+
             {/* Error Message */}
             <Modal show={showOnError} onHide={handleCloseOnError} backdrop="static" keyboard={false} size="md" centered>
                 <Modal.Body>
@@ -560,8 +635,8 @@ export default function K9() {
                                 <FontAwesomeIcon className="modal-icon" color="red" size="6x" icon={faExclamationCircle} />
                             </div>
                             
-                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0 leading-7">{state.errorMsg}</p>
-                            <button onClick={handleCloseWrongNetwork} className="btn btn-custom-1 px-4 font-size-180 font-size-sm-210 leading-tight">
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-2 leading-7">{state.errorMsg}</p>
+                            <button onClick={handleCloseOnError} className="btn btn-custom-1 px-4 font-size-180 font-size-sm-210 leading-tight">
                                 CLOSE
                             </button>
                         </div>
