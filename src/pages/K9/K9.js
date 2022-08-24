@@ -28,6 +28,10 @@ export default function K9() {
         ethBalance: 0,
         isConnected: false,
         isLoaded: false,
+        isFreeMint: false,
+        isSoldOut: false,
+        lastMintedId: 0,
+        nftIdsOfOwner: [],
         freeClaimQty: 208,
         noOfMinted: 0,
         noOfFreeClaimMinted: 988,
@@ -99,24 +103,28 @@ export default function K9() {
             // DEVELOPMENT
             if (netId === 4) {
                 const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
-                console.log(acct)
+
                 if (acct.length > 0) {
+                    console.log(acct[0])
                     _setState("isConnected", true)
                     _setState("account", acct[0])
 
-                    const ethBalance = await _web3.eth.getBalance(acct[0])
-                    _setState("ethBalance", _web3.utils.fromWei(ethBalance.toString(), "ether"))
+                    // Check if minting qty is less than the maximum supply
+                    if (parseInt(state.quantityToMint) + parseInt(state.lastMintedId) <= state.totalSupply) {
+                        // check ETH balance of account
+                        const ethBalance = await _web3.eth.getBalance(acct[0])
+                        _setState("ethBalance", _web3.utils.fromWei(ethBalance.toString(), "ether"))
 
-                    if (parseFloat(ethBalance) >= state.totalPrice) {
-                        if (state.currentMinter !== "OG FREE CLAIM") { // NOT FREE MINT
-                            // MINTING PROCESS START
-                            
-                            // MINTING PROCESS END
-                        } else { // FREE MINT
-
+                        if (parseFloat(ethBalance) >= state.totalPrice) {
+                            // MINTING PROCESS
+                            if (state.currentMinter !== "OG FREE CLAIM") mintSale(_web3, acct[0])
+                            else freeMint(_web3)
+                        } else {
+                            _setState("errorMsg", "Insufficient funds to mint!")
+                            handleShowOnError()
                         }
                     } else {
-                        _setState("errorMsg", "Insufficient funds to mint!")
+                        _setState("errorMsg", "The quantity you want to mint exceeds the remaining available NFTs for sale.")
                         handleShowOnError()
                     }
                 } else {
@@ -129,52 +137,99 @@ export default function K9() {
         } else handleShowMetamaskInstall()
     }
 
-    useEffect(() => {
-        async function _init() {
-            // DEVELOPMENT
-            let rpcUrl = `https://rinkeby.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
-            // PRODUCTION
-            // let rpcUrl = `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
+    const mintSale = async (_web3, acct) => {
+        let contract = new _web3.eth.Contract(k9Abi, k9Address)
 
-            let web3 = configureWeb3(rpcUrl)
-            let contract = new web3.eth.Contract(k9Abi, k9Address)
+        // check if the NFTs owned is less than the NFT per address limit
+        const nftIdsOfOwner = await contract.methods.walletOfOwner(acct).call()
+        const nftPerAddressLimit = await contract.methods.nftPerAddressLimit().call()
+        if (nftIdsOfOwner.length <= parseInt(nftPerAddressLimit)) {
+            // MINT PROCESS
+            await contract.methods.mint(state.quantityToMint).send({
+                from: acct,
+                value: _web3.utils.toWei(state.totalPrice.toString()),
+                type: '0x2'
+            })
+            .on('transactionHash', function(hash){
+                handleShowPleaseWait()
+            })
+            .on('error', function(error) {
+                handleClosePleaseWait()
+                _setState("errorMsg", error.message)
+                handleShowOnError()
+            })
+            .then(async function(receipt) {
+                handleClosePleaseWait()
+                handleShowSuccessful()
+                _setState("txHash", receipt.transactionHash)
 
-            // get current minter
-            const currentMinter = await contract.methods.currentMinter().call()
-            if (currentMinter === "NAN") _setState("currentMinter", "WAITING...")
-            else if (currentMinter === "OG") _setState("currentMinter", "OG MINT")
-            else if (currentMinter === "WL") _setState("currentMinter", "WL MINT")
-            else if (currentMinter === "PUB") _setState("currentMinter", "PUB MINT")
-            else _setState("currentMinter", "OG FREE CLAIM")
-
-            // get number of minted
-            if (currentMinter !== "OG FREE CLAIM") { // Not Free Claim
-                const lastMintedId = await contract.methods.getLastMintedTokenId().call()
-                const noOfMinted = lastMintedId - state.freeClaimQty
-                _setState("noOfMinted", noOfMinted)
-            } else { // Free Claim
-                const lastMintedId = await contract.methods.getLastMintedTokenId().call()
-                const noOfFreeMintedNFT = await contract.methods.noOfFreeClaimsMinted().call()
-                _setState("noOfMinted", lastMintedId + noOfFreeMintedNFT)
-            }
-
-            // price per k9 and max mint
-            let cost = 0.00
-            if (currentMinter === "OG") cost = await contract.methods.oGMintCost().call()
-            else if (currentMinter === "WL") cost = await contract.methods.whitelistedMintCost().call()
-            else if (currentMinter === "PUB") cost = await contract.methods.publicMintCost().call()
-            _setState("pricePerK9", web3.utils.fromWei(cost.toString(), "ether"))
-            _setState("totalPrice", web3.utils.fromWei(cost.toString(), "ether"))
-            
-            const maxMint = await contract.methods.maxMintQuantity().call()
-            _setState("maxMint", maxMint)
-
-            // make the loaded to true
-            _setState("isLoaded", true)
+                // reload data
+                _setState("isLoaded", false)
+                _init()
+            })
+        } else {
+            _setState("errorMsg", "This address already owns the maximum amount of K9s per address.")
+            handleShowOnError()
         }
+    }
 
+    const freeMint = async _web3 => {
+
+    }
+
+    // USE EFFECT
+    useEffect(() => {
         _init()
     }, [])
+
+    const _init = async () => {
+        // DEVELOPMENT
+        let rpcUrl = `https://rinkeby.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
+        // PRODUCTION
+        // let rpcUrl = `https://mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_API_KEY}`
+
+        let web3 = configureWeb3(rpcUrl)
+        let contract = new web3.eth.Contract(k9Abi, k9Address)
+
+        // get current minter
+        const currentMinter = await contract.methods.currentMinter().call()
+        if (currentMinter === "NAN") _setState("currentMinter", "WAITING...")
+        else if (currentMinter === "OG") _setState("currentMinter", "OG MINT")
+        else if (currentMinter === "WL") _setState("currentMinter", "WL MINT")
+        else if (currentMinter === "PUB") _setState("currentMinter", "PUB MINT")
+        else {
+            _setState("currentMinter", "OG FREE CLAIM")
+            _setState("isFreeMint", true)
+        }
+
+        // get number of minted
+        const lastMintedId = await contract.methods.getLastMintedTokenId().call()
+        _setState("lastMintedId", lastMintedId)
+        if (parseInt(lastMintedId) === 2088) _setState("isSoldOut", true) // Sold out
+
+        if (currentMinter !== "OG FREE CLAIM") { // Not Free Claim
+            const noOfMinted = lastMintedId - state.freeClaimQty
+            _setState("noOfMinted", noOfMinted)
+        } else { // Free Claim
+            const noOfFreeMintedNFT = await contract.methods.noOfFreeClaimsMinted().call()
+            _setState("noOfMinted", (lastMintedId - state.freeClaimQty) + noOfFreeMintedNFT)
+        }
+
+        // price per k9 and max mint
+        let cost = 0.00
+        if (currentMinter === "OG") cost = await contract.methods.oGMintCost().call()
+        else if (currentMinter === "WL") cost = await contract.methods.whitelistedMintCost().call()
+        else if (currentMinter === "PUB") cost = await contract.methods.publicMintCost().call()
+        _setState("pricePerK9", web3.utils.fromWei(cost.toString(), "ether"))
+        _setState("totalPrice", web3.utils.fromWei(cost.toString(), "ether"))
+        
+        const maxMint = await contract.methods.maxMintQuantity().call()
+        _setState("maxMint", maxMint)
+
+        // make the loaded to true
+        _setState("isLoaded", true)
+    }
+    // END USEFFECT
 
     return (
         <div className="page-k9">
@@ -194,23 +249,41 @@ export default function K9() {
                                     <p className="k9-mint-box-text k9-mint-box-title text-color-1 font-size-300 font-size-sm-450 mb-0">{state.currentMinter}</p>
                                     <p className="k9-mint-box-text k9-mint-box-count text-color-4 font-size-300 font-size-sm-450 mb-0">{state.noOfMinted}/{state.totalSupply}</p>
                                 </div>
-                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} ETH + Gas</p>
-                                <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
 
                                 {/* Text Field */}
-                                <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
-                                    <button onClick={() => quantityChanger("-")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
-                                    <div id="qtyToMint" className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
-                                    <button onClick={() => quantityChanger("+")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
-                                </div>
-                                <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
-                                    <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">TOTAL</p>
-                                    <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">{state.totalPrice}</p>
-                                </div>
+                                { !state.isFreeMint ? (
+                                    <>        
+                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} ETH + Gas</p>
+                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
 
-                                <div className="k9-mint-btn-wrap">
-                                    <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
-                                </div>
+                                        <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
+                                            <button onClick={() => quantityChanger("-")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
+                                            <div id="qtyToMint" className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
+                                            <button onClick={() => quantityChanger("+")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
+                                        </div>
+                                        <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
+                                            <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">TOTAL</p>
+                                            <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">{state.totalPrice}</p>
+                                        </div>
+        
+                                        <div className="k9-mint-btn-wrap">
+                                            { !state.isSoldOut ? (
+                                                <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                            ) : (
+                                                <button disabled={true} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">SOLD OUT!</button>
+                                            )}
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">K9 NFTS: SOLD OUT!</p>
+                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">OG Holders: You can now mint your FREE K9 NFTs</p>
+                                        <div className="k9-mint-btn-wrap mt-3">
+                                            <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">FREE MINT</button>
+                                        </div>
+                                    </>
+                                )}
+                               
                             </div>
                         </div>
                     </div>
@@ -629,7 +702,7 @@ export default function K9() {
                     </div>
 
                     {/* Place Contents here */}
-                    <div className="modal-inner-content">
+                    <div className="modal-inner-content p-lg-5">
                         <div className="d-flex flex-column h-100 justify-content-center align-items-center">
                             <div className="text-center mb-3">
                                 <FontAwesomeIcon className="modal-icon" color="red" size="6x" icon={faExclamationCircle} />
