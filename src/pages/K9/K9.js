@@ -207,13 +207,17 @@ export default function K9() {
         _setState("lastMintedId", lastMintedId)
         if (parseInt(lastMintedId) === 2088) _setState("isSoldOut", true) // Sold out
 
-        if (currentMinter !== "OG FREE CLAIM") { // Not Free Claim
-            const noOfMinted = lastMintedId - state.freeClaimQty
-            _setState("noOfMinted", noOfMinted)
-        } else { // Free Claim
-            const noOfFreeMintedNFT = await contract.methods.noOfFreeClaimsMinted().call()
-            _setState("noOfMinted", (lastMintedId - state.freeClaimQty) + noOfFreeMintedNFT)
-        }
+        // if (currentMinter !== "OG FREE CLAIM") { // Not Free Claim
+        //     const noOfMinted = lastMintedId - state.freeClaimQty
+        //     _setState("noOfMinted", noOfMinted)
+        // } else { // Free Claim
+        //     const noOfFreeMintedNFT = await contract.methods.noOfFreeClaimsMinted().call()
+        //     _setState("noOfMinted", (lastMintedId - state.freeClaimQty) + noOfFreeMintedNFT)
+        // }
+        
+        // get total number of minted nfts
+        const noOfMinted = await contract.methods.totalSupply().call()
+        _setState("noOfMinted", noOfMinted)
 
         // price per k9 and max mint
         let cost = 0.00
