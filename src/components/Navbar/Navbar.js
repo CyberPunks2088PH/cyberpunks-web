@@ -94,8 +94,11 @@ export default function Navbar(props) {
                             <HashLink className="text-color-2 font-size-220" smooth to="#team" scroll={el => scrollWithOffset(el)}>TEAM</HashLink>
                         </li>
                         <li>
-                            <a href="/k9#k9-mint" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
+                            {/* <a href="/k9#k9-mint" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
                                 MINT NOW
+                            </a> */}
+                            <a href="#" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
+                                MINTING TBA
                             </a>
                         </li>
                     </ul>
@@ -114,8 +117,8 @@ export default function Navbar(props) {
                         <HashLink smooth to="#timeline" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TIMELINE</HashLink>
                         <HashLink smooth to="#ecosystem" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">ECOSYSTEM</HashLink>
                         <HashLink smooth to="#team" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TEAM</HashLink>
-                        <button type="button" className="btn punks-nav-btn btn-custom-1 mt-3 px-4 font-size-220 w-100">
-                            MINT NOW
+                        <button type="button" disabled={true} className="btn punks-nav-btn btn-custom-1 mt-3 px-4 font-size-220 w-100">
+                            MINTING TBA
                         </button>
                     </Menu>
                 </div>

@@ -64,9 +64,12 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link>
+                        </Link> */}
+                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                            MORE INFO SOON
+                        </button>
                     </div>
                     <div className="timeline-border">
                         <div className="timeline-hex"></div>
@@ -213,9 +216,12 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link>
+                        </Link> */}
+                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                            MORE INFO SOON
+                        </button>
                     </div>
 
                     {/* Third Row */}

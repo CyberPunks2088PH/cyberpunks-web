@@ -27,7 +27,7 @@ function App() {
                         <Ecosystem />
                         <Team />
                     </Route>
-                    <Route exact path="/k9" component={pageK9}></Route>
+                    {/* <Route exact path="/k9" component={pageK9}></Route> */}
                 </Switch>
                 <Footer />
             </ScrollToTop>
