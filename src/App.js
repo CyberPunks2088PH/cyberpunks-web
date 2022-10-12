@@ -11,7 +11,7 @@ import Ecosystem from './components/Ecosystem/Ecosystem'
 import Team from './components/Team/Team'
 import Footer from './components/Footer/Footer'
 
-import pageK9 from './pages/K9/K9'
+// import pageK9 from './pages/K9/K9'
 
 function App() {
     return (
