@@ -48,3 +48,8 @@
   bottom: 0;
   padding: 1rem;
 }
+
+a.active {
+  background-color: #31918a;
+  color: var(--neongreen);
+}

@@ -64,20 +64,23 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link>
+                        </Link> */}
+                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                            COMING SOON
+                        </button>
                     </div>
                     <div className="timeline-border">
                         <div className="timeline-hex"></div>
                     </div>
                     <div className="timeline-content margin-left-only">
-                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q2 2022</p>
+                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q3-Q4 2022</p>
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;APRIL
+                                &nbsp;AUGUST - SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Breeding of CyberPunk K9s</li>
@@ -88,7 +91,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;MAY - JUNE
+                                &nbsp;SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Generation of 2,088 CyberPunk K9s</li>
@@ -100,7 +103,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;JULY
+                                &nbsp;OCTOBER - NOVEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Minting Website goes live</li>
@@ -120,7 +123,7 @@ export default function Timeline() {
                     </div>
                     <div className="timeline-content margin-left-only">
                         <p className="timeline-text text-color-1 font-semibold font-size-290 font-size-sm-400 mb-3">Series 2</p>
-                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">CyberPunks2088 2nd Series will be a generative collection dedicated to the growth of the CyberPunks community. Coming with exclusive benefits to the OG Holders and rewards to the new members of the gang.</p>
+                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">CyberPunks2088 2nd Series will be the main and the largest generative collection dedicated to the growth of the art value and CyberPunks community. Coming with exclusive benefits to the OG Holders and rewards to the new members of the gang.</p>
                     </div>
 
                     {/* Fourth Row */}
@@ -170,12 +173,12 @@ export default function Timeline() {
                         <div className="timeline-hex"></div>
                     </div>
                     <div className="timeline-content margin-left-only">
-                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q2 2022</p>
+                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q3-Q4 2022</p>
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;APRIL
+                                &nbsp;AUGUST - SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Breeding of CyberPunk K9s</li>
@@ -186,7 +189,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;MAY
+                                &nbsp;SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Generation of 2,088 CyberPunk K9s</li>
@@ -198,7 +201,7 @@ export default function Timeline() {
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
-                                &nbsp;JUNE
+                                &nbsp;OCTOBER - NOVEMBER
                             </p>
                             <ul className="timeline-list-item">
                                 <li className="timeline-text normal-line-height text-color-2 font-size-210 font-size-sm-250">Minting Website goes live</li>
@@ -213,9 +216,12 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link>
+                        </Link> */}
+                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                            COMING SOON
+                        </button>
                     </div>
 
                     {/* Third Row */}
@@ -225,7 +231,7 @@ export default function Timeline() {
                     <div className="timeline-content margin-left-only">
                         <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-4">TBA</p>
                         <p className="timeline-text text-color-1 font-semibold font-size-290 font-size-sm-400 mb-3">Series 2</p>
-                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">CyberPunks2088 2nd Series will be a generative collection dedicated to the growth of the CyberPunks community. Coming with exclusive benefits to the OG Holders and rewards to the new members of the gang.</p>
+                        <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 leading-none mb-4">CyberPunks2088 2nd Series will be the main and the largest generative collection dedicated to the growth of the art value and CyberPunks community. Coming with exclusive benefits to the OG Holders and rewards to the new members of the gang.</p>
                     </div>
 
                     {/* Fourth Row */}
