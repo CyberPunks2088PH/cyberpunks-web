@@ -2554,6 +2554,7 @@ body {
 .btn-custom-1 {
   color: var(--neongreen);
   border: 2px solid var(--neongreen);
+  border-radius: 0;
   background-color: transparent;
 }
 
@@ -2566,6 +2567,7 @@ body {
 .btn-custom-2 {
   color: var(--green);
   border: 2px solid var(--green);
+  border-radius: 0;
   background-color: transparent;
 }
 
@@ -2578,6 +2580,7 @@ body {
 .btn-custom-3 {
   color: #000000;
   border: none !important;
+  border-radius: 0;
   background: linear-gradient(0deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 57%);
 }
 
@@ -2590,6 +2593,7 @@ body {
 .btn-custom-4 {
   color: #000000;
   border: none !important;
+  border-radius: 0;
   background: linear-gradient(90deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 100%);
 }
 
