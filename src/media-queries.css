@@ -45,6 +45,11 @@
         padding: 0 !important;
     }
 
+    #banner {
+        height: 100% !important;
+        padding: 1em 0;
+    }
+
     .lore-sub,
     .ecosystem-sub,
     .ecosystem-img {
