@@ -68,14 +68,14 @@ export default function Timeline() {
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
                         </Link> */}
                         <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
-                            MORE INFO SOON
+                            COMING SOON
                         </button>
                     </div>
                     <div className="timeline-border">
                         <div className="timeline-hex"></div>
                     </div>
                     <div className="timeline-content margin-left-only">
-                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q2 2022</p>
+                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q3-Q4 2022</p>
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
@@ -173,7 +173,7 @@ export default function Timeline() {
                         <div className="timeline-hex"></div>
                     </div>
                     <div className="timeline-content margin-left-only">
-                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q2 2022</p>
+                        <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">Q3-Q4 2022</p>
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
@@ -220,7 +220,7 @@ export default function Timeline() {
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
                         </Link> */}
                         <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
-                            MORE INFO SOON
+                            COMING SOON
                         </button>
                     </div>
 
