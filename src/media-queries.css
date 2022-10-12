@@ -41,13 +41,18 @@
 @media (max-width: 991px) {
     #header {
         border-bottom: none !important;
-        background-color: transparent !important;
         padding: 0 !important;
     }
 
     #banner {
         height: 100% !important;
         padding: 1em 0;
+        margin-top: 70px;
+    }
+
+    .punks-nav-logo {
+        width: 130px !important;
+        margin-top: 1.3em;
     }
 
     .lore-sub,

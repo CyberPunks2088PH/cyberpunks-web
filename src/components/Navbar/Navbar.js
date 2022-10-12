@@ -103,7 +103,12 @@ export default function Navbar(props) {
                         </li>
                     </ul>
                 </div>
-                <div className="d-lg-none align-self-end">
+                <div className="d-lg-none d-flex justify-content-between align-items-center">
+                    <div className="punks-nav-logo">
+                        <Link exact="true" to="/">
+                            <img src={logo} className="w-100" alt="CyberPunks Logo" />
+                        </Link>
+                    </div>
                     <Menu right styles={styles}
                         isOpen={menuOpenState}
                         onStateChange={(state) => handleStateChange(state)}
