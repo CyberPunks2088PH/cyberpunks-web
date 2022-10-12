@@ -24,7 +24,8 @@ export default function OGSeries() {
                         <p className="series-sub text-color-2 text-center font-size-210 font-size-sm-250 mb-4">MINTING SOON</p>
                     </div>
                     <div className="series-btns d-flex justify-content-center flex-wrap">
-                        <a href="https://opensea.io/collection/cyberpunks2088" target="_blank" rel="noreferrer" className="btn series-btn btn-custom-2 px-4 font-size-210 font-size-sm-250">VIEW ON OPENSEA</a>
+                        {/* <a href="https://opensea.io/collection/cyberpunks2088" target="_blank" rel="noreferrer" className="btn series-btn btn-custom-2 px-4 font-size-210 font-size-sm-250">VIEW ON OPENSEA</a> */}
+                        <button disabled={true} className="btn series-btn btn-custom-2 px-4 font-size-210 font-size-sm-250">MINTING TBA</button>
                         <a href="https://discord.com/invite/PC3bthGRWg" target="_blank" rel="noreferrer" className="btn series-btn btn-custom-2 px-4 font-size-210 font-size-sm-250">JOIN DISCORD</a>
                     </div>
                 </div>
