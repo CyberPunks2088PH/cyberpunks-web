@@ -47,7 +47,8 @@ export default function Navbar(props) {
         },
         bmMenuWrap: {
             position: 'fixed',
-            height: '100%'
+            height: '100%',
+            top: 0
         },
         bmMenu: {
             background: '#0b1420',
@@ -67,7 +68,8 @@ export default function Navbar(props) {
         },
         bmOverlay: {
             background: 'rgba(0, 0, 0, 0.3)',
-            left: 0
+            left: 0,
+            top: 0
         }
     } 
 
