@@ -26,7 +26,7 @@ export default function Timeline() {
                     <div className="squares-red"></div>
                     <div className="squares-red"></div>
                 </div>
-                
+
                 {/* Desktop */}
                 <div className="timeline-wrap d-none d-md-grid my-5">
                     {/* First Row */}
@@ -34,11 +34,11 @@ export default function Timeline() {
                         <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-2">
                             APRIL 2021&nbsp;
                             <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} />
-                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} /> 
+                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} />
                         </p>
                         <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-3">
                             <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} />
-                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} /> 
+                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} />
                             &nbsp;MARCH 2022
                         </p>
                     </div>
@@ -64,12 +64,9 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link> */}
-                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
-                            COMING SOON
-                        </button>
+                        </Link>
                     </div>
                     <div className="timeline-border">
                         <div className="timeline-hex"></div>
@@ -79,7 +76,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;AUGUST - SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -90,7 +87,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -102,7 +99,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;OCTOBER - NOVEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -149,11 +146,11 @@ export default function Timeline() {
                         <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-2">
                             APRIL 2021&nbsp;
                             <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} />
-                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} /> 
+                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronRight} />
                         </p>
                         <p className="timeline-text text-color-3 font-size-290 font-size-sm-400 mb-4">
                             <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} />
-                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} /> 
+                            <FontAwesomeIcon className="chevron-450" color="#09fef1" size="sm" icon={faChevronLeft} />
                             &nbsp;MARCH 2022
                         </p>
 
@@ -177,7 +174,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;AUGUST - SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -188,7 +185,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-3">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;SEPTEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -200,7 +197,7 @@ export default function Timeline() {
                         <div className="timeline-month mb-4">
                             <p className="timeline-text normal-line-height text-color-1 font-size-270 font-size-sm-350 mb-0">
                                 <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
-                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} /> 
+                                <FontAwesomeIcon className="chevron-450" color="#fe0054" size="sm" icon={faChevronRight} />
                                 &nbsp;OCTOBER - NOVEMBER
                             </p>
                             <ul className="timeline-list-item">
@@ -216,12 +213,9 @@ export default function Timeline() {
                             <img src={k9} alt="K9 Timeline Banner" className="w-100" />
                         </div>
                         <p className="timeline-text normal-line-height text-justify text-color-2 font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series of 2088 total supplies of 5 different breeds of doggos that will arrive on the Night City. The only generative collection, together with the OG Series, in the entire project to be used as staking pieces in the future utility once we reached Series 3.</p>
-                        {/* <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
+                        <Link to="/k9" className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
                             MORE INFO <FontAwesomeIcon className="chevron-500" color="#09fef1" size="sm" icon={faChevronRight} />
-                        </Link> */}
-                        <button disabled={true} className="btn timeline-btn btn-custom-1 mt-2 px-4 font-size-210 font-size-sm-250">
-                            COMING SOON
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Third Row */}

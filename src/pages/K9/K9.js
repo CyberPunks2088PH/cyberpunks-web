@@ -9,6 +9,7 @@ import allMongrel from '../../images/K9/mongrel-collage.png'
 import hound from '../../images/K9/Hound.png'
 import martian from '../../images/K9/Martian.png'
 import tech from '../../images/K9/Tech.png'
+import mintdates from '../../images/mintdates.jpg'
 
 export default function K9() {
     return (
@@ -19,55 +20,15 @@ export default function K9() {
             <section id="k9-mint" className="py-5">
                 <div className="container">
                     <div className="k9-mint-outer row align-items-center">
-                        {/* <div className="col-12 col-xl-4"> */}
-                        <h3 className="k9-mint-title vermin text-color-1 text-center font-size-300 font-size-xs-400 font-size-sm-500 mt-5 mb-2">JOIN THE PACK</h3>
-                        <p className="k9-mint-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series  featuring 2,088 doggos that match the CyberPunk2088 Projekt aesthetics. Build your pack by taming K9 NFTs on the Ethereum Blockchain. Having your K9s by yourside will give you access to staking system in the future development of the project.</p>
-
-                        <div className="k9-mint-div font-size-300 fw-bold mb-5">MINTING SOON</div>
-
-                        {/* </div> */}
-                        {/* <div className="col-12 col-xl-7 offset-xl-1">
-                            <div className="k9-mint-box p-5">
-                                <div className="d-flex justify-content-between flex-wrap">
-                                    <p className="k9-mint-box-text k9-mint-box-title text-color-1 font-size-300 font-size-sm-450 mb-0">{state.currentMinter}</p>
-                                    <p className="k9-mint-box-text k9-mint-box-count text-color-4 font-size-300 font-size-sm-450 mb-0">{state.noOfMinted}/{state.totalSupply}</p>
-                                </div>
-
-                                {!state.isFreeMint ? (
-                                    <>
-                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} ETH + Gas</p>
-                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
-
-                                        <div className="k9-mint-text-fields d-flex justify-content-between mb-4">
-                                            <button onClick={() => quantityChanger("-")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">-</button>
-                                            <div id="qtyToMint" className="k9-mint-amount text-center text-color-3 py-2 font-size-400 font-size-sm-450 font-size-md-500">{state.quantityToMint}</div>
-                                            <button onClick={() => quantityChanger("+")} disabled={!state.isLoaded} className="btn k9-mint-amt-btn text-center font-bold btn-custom-3 p-2 font-size-320">+</button>
-                                        </div>
-                                        <div className="k9-mint-total d-flex justify-content-between mb-4 py-2 px-3">
-                                            <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">TOTAL</p>
-                                            <p className="k9-mint-box-text text-color-2 font-size-300 font-size-sm-450 mb-0">{state.totalPrice}</p>
-                                        </div>
-
-                                        <div className="k9-mint-btn-wrap">
-                                            {!state.isSoldOut ? (
-                                                <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
-                                            ) : (
-                                                <button disabled={true} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">SOLD OUT!</button>
-                                            )}
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">K9 NFTS: SOLD OUT!</p>
-                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">OG Holders: You can now mint your FREE K9 NFTs</p>
-                                        <div className="k9-mint-btn-wrap mt-3">
-                                            <button disabled={!state.isLoaded} onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">FREE MINT</button>
-                                        </div>
-                                    </>
-                                )}
-
+                        <div className="col-12 col-xl-5">
+                            <h3 className="k9-mint-title vermin text-color-1 text-right font-size-300 font-size-xs-400 font-size-sm-500 mt-5 mb-2">JOIN THE PACK</h3>
+                            <p className="k9-mint-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series  featuring 2,088 doggos that match the CyberPunk2088 Projekt aesthetics. Build your pack by taming K9 NFTs on the Ethereum Blockchain. Having your K9s by yourside will give you access to staking system in the future development of the project.</p>
+                        </div>
+                        <div className="col-12 col-xl-6 offset-xl-1">
+                            <div className="k9-mintdates rounded-lg">
+                                <img src={mintdates} alt="Mint Dates" className="w-100 rounded-lg" />
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </section>

@@ -343,13 +343,8 @@
     padding-top: 0;
 }
 
+
 /* Temporary */
-.k9-mint-div {
-    color: #000000;
-    border: none !important;
-    border-radius: 0;
-    background: linear-gradient(90deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 100%);
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
+.k9-mintdates {
+    border: 3px solid var(--neongreen);
 }
