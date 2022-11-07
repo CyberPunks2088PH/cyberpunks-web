@@ -56,7 +56,7 @@ export default function K9() {
                                 <div className="k9-rarity-traits-item d-flex align-items-center">
                                     <div className="k9-rarity-traits-details-wrap-right">
                                         <p className="k9-rarity-traits-title text-color-1 text-right font-size-250 font-size-sm-350 mb-0">TECH</p>
-                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Tech Breed is fabricated and constructed by the Bot Punks. This K9s are operated with artificial intelligence. Also one ot the unique breeds you can have.</p>
+                                        <p className="k9-rarity-traits-sub text-justify text-color-2 font-size-180 font-size-sm-210 mb-0">Tech Breed is fabricated and constructed by the Bot Punks. These K9s are operated with artificial intelligence. Also one of the unique breeds you can have.</p>
                                     </div>
                                     <div className="k9-rarity-traits-img-wrap img-right">
                                         <img src={tech} alt="Tech" className="w-100" />
@@ -363,7 +363,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseFour" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">To give value to our OGs and early supporter, there will be different minting price for each schedule: OG Mint will cost 0.03 ETH, Whitelist mint will cost 0.04 ETH, and Public mint wil cost 0.06 ETH. And all transaction will cost additional for your GAS Fees.</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">To give value to our OGs and early supporter, there will be different minting price for each schedule: OG Mint will cost 0.03 ETH, Whitelist mint will cost 0.04 ETH, and Public mint will cost 0.06 ETH. And all transaction will cost additional for your GAS Fees.</div>
                             </div>
                         </div>
                         <div className="accordion-item k9-faqs-item">
