@@ -127,6 +127,7 @@ export default function Navbar(props) {
                         <HashLink smooth to="/#timeline" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TIMELINE</HashLink>
                         <HashLink smooth to="/#ecosystem" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">ECOSYSTEM</HashLink>
                         <HashLink smooth to="/#team" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TEAM</HashLink>
+                        <Link exact="true" to="/k9" onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">K9</Link>
                         <a href="https://opensea.io/collection/cyberpunks2088" target="_blank" rel="noreferrer" className="btn punks-nav-btn btn-custom-1 mt-3 px-4 font-size-220 w-100">
                             VIEW ON OPENSEA
                         </a>
