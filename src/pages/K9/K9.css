@@ -182,15 +182,15 @@
     width: 96%;
 }
 
-.brown-mongrel {
-    border-color: var(--brown);
-    background-color: #b35501;
-    width: 76%;
-}
-
 .purple-mongrel {
     border-color: var(--purple1);
     background-color: #7600b8;
+    width: 76%;
+}
+
+.brown-mongrel {
+    border-color: var(--brown);
+    background-color: #b35501;
     width: 66%;
 }
 
@@ -341,4 +341,15 @@
 .k9-faqs-body {
     line-height: 1em;
     padding-top: 0;
+}
+
+/* Temporary */
+.k9-mint-div {
+    color: #000000;
+    border: none !important;
+    border-radius: 0;
+    background: linear-gradient(90deg, rgba(133,0,255,1) 0%, rgba(250,0,255,1) 100%);
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
 }
