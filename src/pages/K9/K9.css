@@ -182,15 +182,15 @@
     width: 96%;
 }
 
-.brown-mongrel {
-    border-color: var(--brown);
-    background-color: #b35501;
-    width: 76%;
-}
-
 .purple-mongrel {
     border-color: var(--purple1);
     background-color: #7600b8;
+    width: 76%;
+}
+
+.brown-mongrel {
+    border-color: var(--brown);
+    background-color: #b35501;
     width: 66%;
 }
 

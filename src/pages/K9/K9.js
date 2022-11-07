@@ -413,35 +413,35 @@ export default function K9() {
                             <p className="k9-breed-stats-name text-color-7 font-size-350 mb-0">BLUE MONGRELS</p>
                             <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
                                 <div className="k9-breed-stats-bar blue-mongrel"></div>
-                                <p className="k9-breed-stats-count text-color-7 font-size-350 mb-0">29%</p>
-                            </div>
-                        </div>
-                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                            <p className="k9-breed-stats-name text-color-8 font-size-350 mb-0">BROWN MONGRELS</p>
-                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
-                                <div className="k9-breed-stats-bar brown-mongrel"></div>
-                                <p className="k9-breed-stats-count text-color-8 font-size-350 mb-0">25%</p>
+                                <p className="k9-breed-stats-count text-color-7 font-size-350 mb-0">32%</p>
                             </div>
                         </div>
                         <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
                             <p className="k9-breed-stats-name text-color-5 font-size-350 mb-0">PURPLE MONGRELS</p>
                             <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
                                 <div className="k9-breed-stats-bar purple-mongrel"></div>
-                                <p className="k9-breed-stats-count text-color-5 font-size-350 mb-0">21%</p>
+                                <p className="k9-breed-stats-count text-color-5 font-size-350 mb-0">28%</p>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <p className="k9-breed-stats-name text-color-8 font-size-350 mb-0">BROWN MONGRELS</p>
+                            <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
+                                <div className="k9-breed-stats-bar brown-mongrel"></div>
+                                <p className="k9-breed-stats-count text-color-8 font-size-350 mb-0">22%</p>
                             </div>
                         </div>
                         <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
                             <p className="k9-breed-stats-name text-color-6 font-size-350 mb-0">TECHS</p>
                             <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
                                 <div className="k9-breed-stats-bar tech"></div>
-                                <p className="k9-breed-stats-count text-color-6 font-size-350 mb-0">8%</p>
+                                <p className="k9-breed-stats-count text-color-6 font-size-350 mb-0">10%</p>
                             </div>
                         </div>
                         <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
                             <p className="k9-breed-stats-name text-color-3 font-size-350 mb-0">HOUNDS</p>
                             <div className="k9-breed-stats-bar-wrap d-flex align-items-center">
                                 <div className="k9-breed-stats-bar hound"></div>
-                                <p className="k9-breed-stats-count text-color-3 font-size-350 mb-0">6%</p>
+                                <p className="k9-breed-stats-count text-color-3 font-size-350 mb-0">5%</p>
                             </div>
                         </div>
                         <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
@@ -459,15 +459,7 @@ export default function K9() {
                             <div className="k9-breed-stats-bar blue-mongrel">
                                 <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
                                     <p className="k9-breed-stats-name text-color-7 font-size-250 font-size-sm-280 font-size-md-350 mb-0">BLUE MONGRELS</p>
-                                    <p className="k9-breed-stats-count text-color-7 font-size-250 font-size-sm-280 font-size-md-350 mb-0">29%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
-                            <div className="k9-breed-stats-bar brown-mongrel">
-                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
-                                    <p className="k9-breed-stats-name text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">BROWN MONGRELS</p>
-                                    <p className="k9-breed-stats-count text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">25%</p>
+                                    <p className="k9-breed-stats-count text-color-7 font-size-250 font-size-sm-280 font-size-md-350 mb-0">32%</p>
                                 </div>
                             </div>
                         </div>
@@ -475,7 +467,15 @@ export default function K9() {
                             <div className="k9-breed-stats-bar purple-mongrel">
                                 <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
                                     <p className="k9-breed-stats-name text-color-5 font-size-250 font-size-sm-280 font-size-md-350 mb-0">PURPLE MONGRELS</p>
-                                    <p className="k9-breed-stats-count text-color-5 font-size-250 font-size-sm-280 font-size-md-350 mb-0">21%</p>
+                                    <p className="k9-breed-stats-count text-color-5 font-size-250 font-size-sm-280 font-size-md-350 mb-0">28%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="k9-breed-stats-wrap d-flex align-items-center mb-3">
+                            <div className="k9-breed-stats-bar brown-mongrel">
+                                <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
+                                    <p className="k9-breed-stats-name text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">BROWN MONGRELS</p>
+                                    <p className="k9-breed-stats-count text-color-8 font-size-250 font-size-sm-280 font-size-md-350 mb-0">22%</p>
                                 </div>
                             </div>
                         </div>
@@ -483,7 +483,7 @@ export default function K9() {
                             <div className="k9-breed-stats-bar tech">
                                 <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
                                     <p className="k9-breed-stats-name text-color-6 font-size-250 font-size-sm-280 font-size-md-350 mb-0">TECHS</p>
-                                    <p className="k9-breed-stats-count text-color-6 font-size-250 font-size-sm-280 font-size-md-350 mb-0">8%</p>
+                                    <p className="k9-breed-stats-count text-color-6 font-size-250 font-size-sm-280 font-size-md-350 mb-0">10%</p>
                                 </div>
                             </div>
                         </div>
@@ -491,7 +491,7 @@ export default function K9() {
                             <div className="k9-breed-stats-bar hound">
                                 <div className="k9-breed-stats-bar-text-wrap d-flex align-items-center justify-content-between">
                                     <p className="k9-breed-stats-name text-color-3 font-size-250 font-size-sm-280 font-size-md-350 mb-0">HOUNDS</p>
-                                    <p className="k9-breed-stats-count text-color-3 font-size-250 font-size-sm-280 font-size-md-350 mb-0">6%</p>
+                                    <p className="k9-breed-stats-count text-color-3 font-size-250 font-size-sm-280 font-size-md-350 mb-0">5%</p>
                                 </div>
                             </div>
                         </div>
@@ -612,7 +612,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. OG Mint will be on July 28th, Whitelist Mint will be on July 29th and the Public Sale will be on July 30th.</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. OG Mint will be on November 24th, Whitelist Mint will be on November 25th and the Public Sale will be on November 26th.</div>
                             </div>
                         </div>
                         <div className="accordion-item k9-faqs-item">
@@ -624,7 +624,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseFour" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">To give value to our OGs and early supporter, there will be difefferent minting price for each schedule: OG Mint will cost 0.03 ETH, Whitelist mint will cost 0.04 ETH, and Public mint wil cost 0.06 ETH. And all transaction will cost additional for your GAS Fees.</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">To give value to our OGs and early supporter, there will be different minting price for each schedule: OG Mint will cost 0.03 ETH, Whitelist mint will cost 0.04 ETH, and Public mint wil cost 0.06 ETH. And all transaction will cost additional for your GAS Fees.</div>
                             </div>
                         </div>
                         <div className="accordion-item k9-faqs-item">
@@ -636,7 +636,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseFive" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">Aside from getting your dope PFP and having a matching K9 with your Punks, for each quarter of minting progress there will be ETH prizes to be raffled to K9 Holders. K9 NFTs together with the OG CyberPunks will be the only pieces in the entire project to have the staking capability where its rarity will play a big role in earning tokens. Untimately, as we are aiming to get these NFTs into the Metaverse, how cool is that to have you K9s on your side roaming around the Night City?</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">Aside from getting your dope PFP and having a matching K9 with your Punks, for each quarter of minting progress there will be ETH prizes to be raffled to K9 Holders. K9 NFTs together with the OG CyberPunks will be the only pieces in the entire project to have the staking capability where its rarity will play a big role in earning tokens. Ultimately, as we are aiming to get these NFTs into the Metaverse, how cool is that to have you K9s on your side roaming around the Night City?</div>
                             </div>
                         </div>
                     </div>
