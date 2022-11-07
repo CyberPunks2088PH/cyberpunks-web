@@ -351,7 +351,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. OG Mint will be on November 24th, Whitelist Mint will be on November 25th and the Public Sale will be on November 26th.</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. OG Mint will be on November 24th 6AM PT, Whitelist Mint will be on November 25th 6AM PT and the Public Sale will be on November 26th 6AM PT.</div>
                             </div>
                         </div>
                         <div className="accordion-item k9-faqs-item">
