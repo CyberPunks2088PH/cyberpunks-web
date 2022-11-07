@@ -25,8 +25,8 @@ export default function K9() {
                             <p className="k9-mint-sub text-color-2 text-justify font-size-210 font-size-sm-250 mb-4">CyberPunk K9 is a special series  featuring 2,088 doggos that match the CyberPunk2088 Projekt aesthetics. Build your pack by taming K9 NFTs on the Ethereum Blockchain. Having your K9s by yourside will give you access to staking system in the future development of the project.</p>
                         </div>
                         <div className="col-12 col-xl-6 offset-xl-1">
-                            <div className="k9-mintdates rounded-lg">
-                                <img src={mintdates} alt="Mint Dates" className="w-100 rounded-lg" />
+                            <div className="k9-mintdates">
+                                <img src={mintdates} alt="Mint Dates" className="w-100" />
                             </div>
                         </div>
                     </div>
