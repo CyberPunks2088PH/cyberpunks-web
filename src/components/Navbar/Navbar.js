@@ -11,8 +11,8 @@ export default function Navbar(props) {
 
     const scrollWithOffset = (el) => {
         const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const yOffset = -70; 
-        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+        const yOffset = -70;
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
         // window.scrollTo({ top: yCoordinate, behavior: 'smooth' }); 
     }
 
@@ -71,7 +71,7 @@ export default function Navbar(props) {
             left: 0,
             top: 0
         }
-    } 
+    }
 
     return (
         <div id="header">
@@ -94,6 +94,9 @@ export default function Navbar(props) {
                         </li>
                         <li>
                             <HashLink className="text-color-2 font-size-220" smooth to="/#team" scroll={el => scrollWithOffset(el)}>TEAM</HashLink>
+                        </li>
+                        <li>
+                            <a href="/k9" className="text-color-2 font-size-220">K9</a>
                         </li>
                         <li>
                             {/* <a href="/k9#k9-mint" className="btn punks-nav-btn btn-custom-1 px-4 font-size-160">
@@ -124,6 +127,7 @@ export default function Navbar(props) {
                         <HashLink smooth to="/#timeline" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TIMELINE</HashLink>
                         <HashLink smooth to="/#ecosystem" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">ECOSYSTEM</HashLink>
                         <HashLink smooth to="/#team" scroll={el => scrollWithOffset(el)} onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">TEAM</HashLink>
+                        <Link exact="true" to="/k9" onClick={() => closeMenu()} className="text-color-2 font-size-220 d-block py-3 w-100 text-decoration-none">K9</Link>
                         <a href="https://opensea.io/collection/cyberpunks2088" target="_blank" rel="noreferrer" className="btn punks-nav-btn btn-custom-1 mt-3 px-4 font-size-220 w-100">
                             VIEW ON OPENSEA
                         </a>

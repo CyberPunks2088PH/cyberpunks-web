@@ -342,3 +342,9 @@
     line-height: 1em;
     padding-top: 0;
 }
+
+
+/* Temporary */
+.k9-mintdates {
+    border: 3px solid var(--neongreen);
+}
