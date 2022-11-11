@@ -351,4 +351,8 @@
     .k9-mint-box-text-prices {
         font-size: 2.3em !important;
     }
+
+    .k9-mint-connect-overlay .k9-mint-btn-wrap {
+        width: 100% !important;
+    }
 }
