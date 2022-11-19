@@ -26,11 +26,10 @@ import { k9Abi, k9Address } from '../../utils/contracts/devContract'
 // import { k9Abi, k9Address } from '../../utils/contracts/mainContract'
 
 export default function K9() {
+    const [web3, setWeb3] = useState()
+    const [contract, setContract] = useState()
     const [state, setState] = useState({
-        web3: "",
-        contract: "",
         maxSupply: 2088,
-        totalSupply: 0,
         currentMinter: "",
         account: "",
         ogTokenIds: [],
@@ -44,6 +43,7 @@ export default function K9() {
         maxMint: 5,
         quantityToMint: 1,
         totalPrice: 0,
+        lastTokenIdMinted: 0,
         txHash: "",
         errorMsg: "",
     })
@@ -51,8 +51,10 @@ export default function K9() {
     // Other Variables
     // PRODUCTION
     // const explorerUrl = "https://etherscan.io/tx/"
+    // const openSeaUrl = "https://opensea.io/assets/ethereum/"
     // DEVELOPMENT
     const explorerUrl = "https://goerli.etherscan.io/tx/"
+    const openSeaUrl = "https://testnets.opensea.io/assets/goerli/"
 
     // Modals
     const [showPleaseWait, setShowPleaseWait] = useState(false)
@@ -91,50 +93,66 @@ export default function K9() {
         }
     }
 
-    const connectAndMint = async () => {
-        //     // Connect
-        //     const _web3 = configureWeb3()
+    const mintK9 = async () => {
+        // cheeck if free claim
+        if (state.currentMinter !== "FREE CLAIM") {
+            // check quantity
+            const qtyToMint = parseInt(document.getElementById("qtyToMint").textContent)
 
-        //     if (_web3 !== 1) {
-        //         const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
+            if (qtyToMint) {
+                // check qty if it doesn't exceeds the number of minted k9s
+                if (Number(state.noOfMinted) + qtyToMint <= Number(state.maxSupply)) {
+                    // check balance if enough
+                    const userBalance = await web3.eth.getBalance(state.account)
 
-        //         // PRODUCTION
-        //         // if (netId === 1) {
-        //         // DEVELOPMENT
-        //         if (netId === 4) {
-        //             const acct = await window.ethereum.request({ method: "eth_requestAccounts" })
+                    if (userBalance >= state.totalPrice) {
+                        // check current minter
+                        if (state.currentMinter === "OG MINT") ogMintProcess(qtyToMint)
+                        else if (state.currentMinter === "WL MINT") wlMintProcess(qtyToMint)
+                        else publicMintProcess(qtyToMint)
+                    } else {
+                        _setState("errorMsg", "You don't have enough ETH balance to proceed with the mint.")
+                        handleShowOnError()
+                    }
+                } else {
+                    const remaining = Number(state.maxSupply) - Number(state.noOfMinted)
+                    _setState("errorMsg", `The quantity you want to mint exceeds the number of K9's left (${remaining} K9's left). Please try a different value.`)
+                    handleShowOnError()
+                }
+            } else {
+                _setState("errorMsg", "Please input a valid amount greater than 0.")
+                handleShowOnError()
+            }
+        } else freeClaimMintProcess()
+    }
 
-        //             if (acct.length > 0) {
-        //                 console.log(acct[0])
-        //                 _setState("isConnected", true)
-        //                 _setState("account", acct[0])
+    const ogMintProcess = async qty => {
+        // check if OG holder
+        if (state.ogTokenIds.length > 0) {
+            console.log(state.ogTokenIds)
 
-        //                 // Check if minting qty is less than the maximum supply
-        //                 if (parseInt(state.quantityToMint) + parseInt(state.lastMintedId) <= state.totalSupply) {
-        //                     // check ETH balance of account
-        //                     const ethBalance = await _web3.eth.getBalance(acct[0])
-        //                     _setState("ethBalance", _web3.utils.fromWei(ethBalance.toString(), "ether"))
 
-        //                     if (parseFloat(ethBalance) >= state.totalPrice) {
-        //                         // MINTING PROCESS
-        //                         if (state.currentMinter !== "OG FREE CLAIM") mintSale(_web3, acct[0])
-        //                         else freeMint(_web3)
-        //                     } else {
-        //                         _setState("errorMsg", "Insufficient funds to mint!")
-        //                         handleShowOnError()
-        //                     }
-        //                 } else {
-        //                     _setState("errorMsg", "The quantity you want to mint exceeds the remaining available NFTs for sale.")
-        //                     handleShowOnError()
-        //                 }
-        //             } else {
-        //                 _setState("errorMsg", "No account found!")
-        //                 handleShowOnError()
-        //             }
-        //         } else {
-        //             handleShowWrongNetwork()
-        //         }
-        //     } else handleShowMetamaskInstall()
+        } else {
+            _setState("errorMsg", "The address that you connected is not an OG holder.")
+            handleShowOnError()
+        }
+    }
+
+    const wlMintProcess = async qty => {
+
+    }
+
+    const publicMintProcess = async qty => {
+
+    }
+
+    const freeClaimMintProcess = async () => {
+
+    }
+
+    // Free mint for promo
+    const freeMint = async () => {
+
     }
 
     const mintSale = async (_web3, acct) => {
@@ -177,11 +195,11 @@ export default function K9() {
     const _connectWallet = async () => {
         _setState("isLoading", true)
         let web3 = configureWeb3()
-        if (web3 != 1) {
-            _setState("web3", web3)
+        if (web3 !== 1) {
+            setWeb3(web3)
 
             const contract = new web3.eth.Contract(k9Abi, k9Address)
-            _setState("contract", contract)
+            setContract(contract)
 
             const userAcct = await connectToMetaMask()
             if (userAcct) {
@@ -204,15 +222,15 @@ export default function K9() {
                     : (currentMinter === "WL MINT") ? await contract.methods.whitelistedMintCost().call()
                         : (currentMinter === "OG MINT") ? await contract.methods.oGMintCost().call()
                             : 0
-                _setState("pricePerK9", currPrice)
+                _setState("pricePerK9", web3.utils.fromWei(currPrice.toString(), "ether"))
+                _setState("totalPrice", web3.utils.fromWei(currPrice.toString(), "ether"))
 
                 // get the current number of minted k9s
                 const totalSupply = await contract.methods.totalSupply().call()
                 _setState("noOfMinted", totalSupply)
 
                 // check if sold out
-                const maxSupply = await contract.methods.maxSupply().call()
-                if (totalSupply === maxSupply) _setState("isSoldOut", true)
+                if (totalSupply === state.maxSupply) _setState("isSoldOut", true)
 
                 // check if the address owns token ids from OG collection
                 const ogTokenIds = await contract.methods.freeClaimTokenIds(userAcct).call()
@@ -280,7 +298,7 @@ export default function K9() {
 
                                         <div className="k9-mint-btn-wrap">
                                             {!state.isSoldOut ? (
-                                                <button onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                                <button onClick={mintK9} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                             ) : (
                                                 <button disabled={true} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">SOLD OUT!</button>
                                             )}
@@ -289,9 +307,9 @@ export default function K9() {
                                 ) : (
                                     <>
                                         <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">K9 NFTS: SOLD OUT!</p>
-                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">OG Holders: You can now mint your FREE K9 NFTs</p>
+                                        <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">OG Holders: You can now mint your FREE K9 NFTs! Click on the button below to mint yours.</p>
                                         <div className="k9-mint-btn-wrap mt-3">
-                                            <button onClick={connectAndMint} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">FREE MINT</button>
+                                            <button onClick={mintK9} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                         </div>
                                     </>
                                 )}
@@ -619,7 +637,7 @@ export default function K9() {
                                 </button>
                             </h2>
                             <div id="flush-collapseThree" className="accordion-collapse k9-faqs-collapse collapse" data-bs-parent="#k9-faqs-accordion">
-                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. OG Mint will be on November 24th 6AM PT, Whitelist Mint will be on November 25th 6AM PT and the Public Sale will be on November 26th 6AM PT.</div>
+                                <div className="accordion-body k9-faqs-body text-justify font-size-210 font-size-sm-250 text-color-2">There will be 3 Minting Schedules. Presale will be for OGs and Whitelists. Mint dates are TBA at the moment.</div>
                             </div>
                         </div>
                         <div className="accordion-item k9-faqs-item">
@@ -667,7 +685,7 @@ export default function K9() {
                                 <FontAwesomeIcon className="modal-icon" color="#09fef1" size="6x" icon={faSpinner} spin />
                             </div>
 
-                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0 leading-7">Please wait while we are minting your NFT/s.</p>
+                            <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-0 leading-7">Please wait while we are minting your K9 NFT/s.</p>
                         </div>
                     </div>
                 </Modal.Body>
@@ -677,26 +695,29 @@ export default function K9() {
             <Modal show={showSuccessful} onHide={handleCloseSuccessful} backdrop="static" keyboard={false} size="md" centered>
                 <Modal.Body>
                     {/* Design */}
-                    {/* <button onClick={handleCloseSuccessful} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button> */}
+                    <button onClick={handleCloseSuccessful} className="modal-close btn vermin text-color-2 text-center font-size-200 mb-0">X</button>
                     <div className="modal-bg">
                         <img src={popup} alt="Popup" className="w-100" />
                     </div>
 
                     {/* Place Contents here */}
                     <div className="modal-inner-content">
-                        <div className="d-flex flex-column h-100 justify-content-center align-items-center px-lg-3">
+                        <div className="d-flex flex-column h-100 justify-content-center align-items-center px-sm-3">
                             <div className="text-center mb-3">
                                 <FontAwesomeIcon className="modal-icon" color="green" size="6x" icon={faCheckCircle} />
                             </div>
 
                             <p className="text-center text-color-2 font-size-200 font-size-sm-210 font-size-md-260 font-size-lg-300 mb-2 leading-7">Your K9's are successfully minted.</p>
                             <div className="d-flex flex-wrap justify-content-center align-items-center">
-                                <button onClick={handleCloseSuccessful} className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1">
+                                {/* <button onClick={handleCloseSuccessful} className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1">
                                     CLOSE
-                                </button>
-                                <button className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                                </button> */}
+                                <a href={explorerUrl + state.txHash} target="_blank" rel="noreferrer" className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1">
                                     VIEW ON ETHERSCAN
-                                </button>
+                                </a>
+                                <a href={openSeaUrl + k9Address + "/" + state.lastTokenIdMinted} target="_blank" rel="noreferrer" className="btn btn-custom-1 px-4 font-size-160 font-size-sm-210 leading-tight mx-2 my-1">
+                                    VIEW ON OPENSEA
+                                </a>
                             </div>
                         </div>
                     </div>
