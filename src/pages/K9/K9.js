@@ -36,6 +36,7 @@ export default function K9() {
         isConnected: false,
         isLoading: false,
         isFreeMint: false,
+        isDisabled: false,
         isSoldOut: false,
         freeClaimQty: 208,
         noOfMinted: 0,
@@ -129,9 +130,34 @@ export default function K9() {
     const ogMintProcess = async qty => {
         // check if OG holder
         if (state.ogTokenIds.length > 0) {
-            console.log(state.ogTokenIds)
+            const totalPrice = web3.utils.toWei(state.totalPrice.toString())
 
+            await contract.methods.mint(qty, state.ogTokenIds[0]).send({
+                from: state.account,
+                value: totalPrice,
+            })
+                .on('transactionHash', function (hash) {
+                    _setState("isDisabled", true)
+                    handleShowPleaseWait()
+                })
+                .on('error', function (error) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    _setState("errorMsg", error.message)
+                    handleShowOnError()
+                })
+                .then(async function (receipt) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    handleShowSuccessful()
+                    _setState("txHash", receipt.transactionHash)
 
+                    if (qty > 1) _setState("lastTokenIdMinted", receipt.events.Transfer['0'].returnValues.tokenId)
+                    else _setState("lastTokenIdMinted", receipt.events.Transfer.returnValues.tokenId)
+
+                    // reload data
+                    _init(web3, contract, state.account)
+                })
         } else {
             _setState("errorMsg", "The address that you connected is not an OG holder.")
             handleShowOnError()
@@ -139,11 +165,74 @@ export default function K9() {
     }
 
     const wlMintProcess = async qty => {
+        const checkIfWL = await contract.methods.isWhitelisted(state.account).call()
+        const checkIfOG = (state.ogTokenIds.length > 0) ? true : false
 
+        if (checkIfWL || checkIfOG) {
+            const totalPrice = web3.utils.toWei(state.totalPrice.toString())
+            const secParam = (checkIfOG) ? state.ogTokenIds[0] : 1
+
+            await contract.methods.mint(qty, secParam).send({
+                from: state.account,
+                value: totalPrice,
+            })
+                .on('transactionHash', function (hash) {
+                    _setState("isDisabled", true)
+                    handleShowPleaseWait()
+                })
+                .on('error', function (error) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    _setState("errorMsg", error.message)
+                    handleShowOnError()
+                })
+                .then(async function (receipt) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    handleShowSuccessful()
+                    _setState("txHash", receipt.transactionHash)
+
+                    if (qty > 1) _setState("lastTokenIdMinted", receipt.events.Transfer['0'].returnValues.tokenId)
+                    else _setState("lastTokenIdMinted", receipt.events.Transfer.returnValues.tokenId)
+
+                    // reload data
+                    _init(web3, contract, state.account)
+                })
+        } else {
+            _setState("errorMsg", "The address that you connected is not whitelisted nor an OG holder.")
+            handleShowOnError()
+        }
     }
 
     const publicMintProcess = async qty => {
+        const totalPrice = web3.utils.toWei(state.totalPrice.toString())
 
+        await contract.methods.mint(qty, 1).send({
+            from: state.account,
+            value: totalPrice,
+        })
+            .on('transactionHash', function (hash) {
+                _setState("isDisabled", true)
+                handleShowPleaseWait()
+            })
+            .on('error', function (error) {
+                _setState("isDisabled", false)
+                handleClosePleaseWait()
+                _setState("errorMsg", error.message)
+                handleShowOnError()
+            })
+            .then(async function (receipt) {
+                _setState("isDisabled", false)
+                handleClosePleaseWait()
+                handleShowSuccessful()
+                _setState("txHash", receipt.transactionHash)
+
+                if (qty > 1) _setState("lastTokenIdMinted", receipt.events.Transfer['0'].returnValues.tokenId)
+                else _setState("lastTokenIdMinted", receipt.events.Transfer.returnValues.tokenId)
+
+                // reload data
+                _init(web3, contract, state.account)
+            })
     }
 
     const freeClaimMintProcess = async () => {
@@ -153,42 +242,6 @@ export default function K9() {
     // Free mint for promo
     const freeMint = async () => {
 
-    }
-
-    const mintSale = async (_web3, acct) => {
-        // let contract = new _web3.eth.Contract(k9Abi, k9Address)
-
-        // // check if the NFTs owned is less than the NFT per address limit
-        // const nftIdsOfOwner = await contract.methods.walletOfOwner(acct).call()
-        // const nftPerAddressLimit = await contract.methods.nftPerAddressLimit().call()
-        // if (nftIdsOfOwner.length <= parseInt(nftPerAddressLimit)) {
-        //     // MINT PROCESS
-        //     await contract.methods.mint(state.quantityToMint).send({
-        //         from: acct,
-        //         value: _web3.utils.toWei(state.totalPrice.toString()),
-        //         type: '0x2'
-        //     })
-        //         .on('transactionHash', function (hash) {
-        //             handleShowPleaseWait()
-        //         })
-        //         .on('error', function (error) {
-        //             handleClosePleaseWait()
-        //             _setState("errorMsg", error.message)
-        //             handleShowOnError()
-        //         })
-        //         .then(async function (receipt) {
-        //             handleClosePleaseWait()
-        //             handleShowSuccessful()
-        //             _setState("txHash", receipt.transactionHash)
-
-        //             // reload data
-        //             _setState("isLoaded", false)
-        //             _init()
-        //         })
-        // } else {
-        //     _setState("errorMsg", "This address already owns the maximum amount of K9s per address.")
-        //     handleShowOnError()
-        // }
     }
 
     // CONNECT
@@ -205,39 +258,7 @@ export default function K9() {
             if (userAcct) {
                 _setState("account", userAcct)
 
-                // get the current minter
-                const freeClaimCanMint = await contract.methods.freeClaimCanMint().call()
-                const publicCanMint = await contract.methods.publicCanMint().call()
-                const wlCanMint = await contract.methods.whitelistedCanMint().call()
-                const ogCanMint = await contract.methods.oGCanMint().call()
-                const currentMinter = (freeClaimCanMint) ? "FREE CLAIM" : (publicCanMint) ? "PUBLIC" : (wlCanMint) ? "WL MINT" : (ogCanMint) ? "OG MINT" : ""
-                _setState("currentMinter", currentMinter)
-
-                // get max mint qty per transaction
-                const maxQty = await contract.methods.maxMintQuantity().call()
-                _setState("maxMint", maxQty)
-
-                // get the current price
-                const currPrice = (currentMinter === "PUBLIC") ? await contract.methods.publicMintCost().call()
-                    : (currentMinter === "WL MINT") ? await contract.methods.whitelistedMintCost().call()
-                        : (currentMinter === "OG MINT") ? await contract.methods.oGMintCost().call()
-                            : 0
-                _setState("pricePerK9", web3.utils.fromWei(currPrice.toString(), "ether"))
-                _setState("totalPrice", web3.utils.fromWei(currPrice.toString(), "ether"))
-
-                // get the current number of minted k9s
-                const totalSupply = await contract.methods.totalSupply().call()
-                _setState("noOfMinted", totalSupply)
-
-                // check if sold out
-                if (totalSupply === state.maxSupply) _setState("isSoldOut", true)
-
-                // check if the address owns token ids from OG collection
-                const ogTokenIds = await contract.methods.freeClaimTokenIds(userAcct).call()
-                _setState("ogTokenIds", ogTokenIds)
-
-                _setState("isLoading", false)
-                _setState("isConnected", true)
+                _init(web3, contract, userAcct)
             } else {
                 _setState("isLoading", false)
                 _setState("errorMsg", "You do not have a connected wallet address. Please try again.")
@@ -247,6 +268,42 @@ export default function K9() {
             _setState("isLoading", false)
             handleShowMetamaskInstall()
         }
+    }
+
+    const _init = async (w3, cont, acct) => {
+        // get the current minter
+        const freeClaimCanMint = await cont.methods.freeClaimCanMint().call()
+        const publicCanMint = await cont.methods.publicCanMint().call()
+        const wlCanMint = await cont.methods.whitelistedCanMint().call()
+        const ogCanMint = await cont.methods.oGCanMint().call()
+        const currentMinter = (freeClaimCanMint) ? "FREE CLAIM" : (publicCanMint) ? "PUBLIC" : (wlCanMint) ? "WL MINT" : (ogCanMint) ? "OG MINT" : ""
+        _setState("currentMinter", currentMinter)
+
+        // get max mint qty per transaction
+        const maxQty = await cont.methods.maxMintQuantity().call()
+        _setState("maxMint", maxQty)
+
+        // get the current price
+        const currPrice = (currentMinter === "PUBLIC") ? await cont.methods.publicMintCost().call()
+            : (currentMinter === "WL MINT") ? await cont.methods.whitelistedMintCost().call()
+                : (currentMinter === "OG MINT") ? await cont.methods.oGMintCost().call()
+                    : 0
+        _setState("pricePerK9", w3.utils.fromWei(currPrice.toString(), "ether"))
+        _setState("totalPrice", w3.utils.fromWei(currPrice.toString(), "ether"))
+
+        // get the current number of minted k9s
+        const totalSupply = await cont.methods.totalSupply().call()
+        _setState("noOfMinted", totalSupply)
+
+        // check if sold out
+        if (totalSupply === state.maxSupply) _setState("isSoldOut", true)
+
+        // check if the address owns token ids from OG collection
+        const ogTokenIds = await cont.methods.freeClaimTokenIds(acct).call()
+        _setState("ogTokenIds", ogTokenIds)
+
+        _setState("isLoading", false)
+        _setState("isConnected", true)
     }
     // END CONNECT
 
@@ -298,7 +355,7 @@ export default function K9() {
 
                                         <div className="k9-mint-btn-wrap">
                                             {!state.isSoldOut ? (
-                                                <button onClick={mintK9} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                                <button onClick={mintK9} disabled={state.isDisabled} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                             ) : (
                                                 <button disabled={true} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">SOLD OUT!</button>
                                             )}
@@ -309,7 +366,7 @@ export default function K9() {
                                         <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">K9 NFTS: SOLD OUT!</p>
                                         <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">OG Holders: You can now mint your FREE K9 NFTs! Click on the button below to mint yours.</p>
                                         <div className="k9-mint-btn-wrap mt-3">
-                                            <button onClick={mintK9} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
+                                            <button onClick={mintK9} disabled={state.isDisabled} className="btn k9-mint-btn text-center font-bold btn-custom-4 p-2 font-size-400">MINT</button>
                                         </div>
                                     </>
                                 )}
