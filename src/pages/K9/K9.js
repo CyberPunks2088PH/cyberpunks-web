@@ -35,7 +35,7 @@ export default function K9() {
         ogTokenIds: [],
         isConnected: false,
         isLoading: false,
-        isFreeMint: false,
+        isFreeClaimMint: false,
         isDisabled: false,
         isSoldOut: false,
         freeClaimQty: 208,
@@ -236,7 +236,38 @@ export default function K9() {
     }
 
     const freeClaimMintProcess = async () => {
+        const checkIfOG = (state.ogTokenIds.length > 0) ? true : false
 
+        if (checkIfOG) {
+            await contract.methods.freeClaimMint(state.ogTokenIds).send({
+                from: state.account,
+            })
+                .on('transactionHash', function (hash) {
+                    _setState("isDisabled", true)
+                    handleShowPleaseWait()
+                })
+                .on('error', function (error) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    _setState("errorMsg", error.message)
+                    handleShowOnError()
+                })
+                .then(async function (receipt) {
+                    _setState("isDisabled", false)
+                    handleClosePleaseWait()
+                    handleShowSuccessful()
+                    _setState("txHash", receipt.transactionHash)
+
+                    if (state.ogTokenIds.length > 1) _setState("lastTokenIdMinted", receipt.events.Transfer['0'].returnValues.tokenId)
+                    else _setState("lastTokenIdMinted", receipt.events.Transfer.returnValues.tokenId)
+
+                    // reload data
+                    _init(web3, contract, state.account)
+                })
+        } else {
+            _setState("errorMsg", "The address that you connected is not an OG holder.")
+            handleShowOnError()
+        }
     }
 
     // Free mint for promo
@@ -278,6 +309,9 @@ export default function K9() {
         const ogCanMint = await cont.methods.oGCanMint().call()
         const currentMinter = (freeClaimCanMint) ? "FREE CLAIM" : (publicCanMint) ? "PUBLIC" : (wlCanMint) ? "WL MINT" : (ogCanMint) ? "OG MINT" : ""
         _setState("currentMinter", currentMinter)
+
+        // enable Free Claim Minting
+        if (freeClaimCanMint) _setState("isFreeClaimMint", true)
 
         // get max mint qty per transaction
         const maxQty = await cont.methods.maxMintQuantity().call()
@@ -338,7 +372,7 @@ export default function K9() {
                                 </div>
 
                                 {/* Text Field */}
-                                {!state.isFreeMint ? (
+                                {!state.isFreeClaimMint ? (
                                     <>
                                         <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-0">Price per K9: {state.pricePerK9} ETH + Gas</p>
                                         <p className="k9-mint-box-text k9-mint-box-text-prices text-color-2 font-size-250 font-size-sm-380 mb-3">Max: {state.maxMint} K9 per Transaction</p>
