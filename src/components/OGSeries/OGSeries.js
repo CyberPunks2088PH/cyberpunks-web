@@ -21,7 +21,7 @@ export default function OGSeries() {
                     <div className="series-wrap">
                         <h3 className="series-title vermin text-color-1 text-center font-size-300 font-size-sm-350 font-size-sm-450 mt-3 mb-0">CYBERPUNK K9</h3>
                         <p className="series-sub text-color-2 text-center font-size-210 font-size-sm-250 mb-0">Supply Count: 2,088 K9s</p>
-                        <p className="series-sub text-color-2 text-center font-size-210 font-size-sm-250 mb-4">MINTING THIS NOVEMBER</p>
+                        <p className="series-sub text-color-2 text-center font-size-210 font-size-sm-250 mb-4">MINTING SOON</p>
                     </div>
                     <div className="series-btns d-flex justify-content-center flex-wrap">
                         <a href="/k9" className="btn series-btn btn-custom-2 px-4 font-size-210 font-size-sm-250">VIEW DETAILS</a>
